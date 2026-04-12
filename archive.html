@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive | MLRG — Machine Learning Reading Group · University of Memphis</title>
+  <meta name="description" content="Archive of past MLRG paper presentations at the University of Memphis.">
+  <meta property="og:title" content="Archive | MLRG · Machine Learning Reading Group">
+  <meta property="og:description" content="Browse past AI/ML paper discussions at the University of Memphis.">
+  <meta property="og:image" content="assets/og-image.png">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="min-h-screen">
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════════ -->
+  <nav id="main-nav" class="sticky top-0 z-50 shadow-md" style="background-color: var(--primary);">
+    <div class="content-wrap">
+      <div class="flex items-center justify-between h-14">
+
+        <a href="index.html" class="flex items-center gap-2 no-underline">
+          <img src="assets/logo.svg" alt="MLRG" class="h-8 w-8 rounded-full">
+          <span class="font-display font-bold text-lg" style="color: var(--text-on-dark);">MLRG</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-7">
+          <a href="index.html"   class="nav-link">Home</a>
+          <a href="archive.html" class="nav-link active">Archive</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <button
+          id="hamburger-btn"
+          class="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded focus:outline-none"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          style="color: var(--text-on-dark);"
+        >
+          <span class="block w-6 h-0.5 bg-current"></span>
+          <span class="block w-6 h-0.5 bg-current"></span>
+          <span class="block w-6 h-0.5 bg-current"></span>
+        </button>
+
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 mt-1">
+        <a href="index.html"   class="nav-link-mobile">Home</a>
+        <a href="archive.html" class="nav-link-mobile active">Archive</a>
+        <a href="contact.html" class="nav-link-mobile">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════════════ -->
+  <main>
+    <div class="section-py" style="background-color: var(--bg-main);">
+      <div class="content-wrap">
+
+        <!-- Page heading -->
+        <h1 class="font-display text-4xl font-black mb-6" style="color: var(--primary);">Archive</h1>
+
+        <!-- Toggle button group -->
+        <div class="flex mb-5" role="group" aria-label="Archive section toggle">
+          <button id="btn-current"  class="toggle-btn active" aria-pressed="true">Current Semester</button>
+          <button id="btn-previous" class="toggle-btn"        aria-pressed="false">Previous Semesters</button>
+        </div>
+
+        <!-- Search input -->
+        <div class="mb-8 max-w-md">
+          <label for="archive-search" class="sr-only">Search archive</label>
+          <div class="relative">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color: var(--text-secondary);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"/>
+            </svg>
+            <input
+              id="archive-search"
+              type="search"
+              placeholder="Search by paper, presenter, or topic..."
+              class="w-full pl-9 pr-4 py-2 text-sm rounded-full border focus:outline-none focus:ring-2"
+              style="
+                background: var(--bg-card);
+                border-color: var(--border);
+                color: var(--text-primary);
+                --tw-ring-color: var(--primary-light);
+              "
+            >
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════
+             CURRENT SEMESTER (visible by default)
+        ═══════════════════════════════ -->
+        <div id="current-semester">
+          <h2 class="text-2xl font-bold mb-4" style="color: var(--primary);">Spring 2026</h2>
+
+          <div class="table-wrapper">
+            <table class="mlrg-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Presenter</th>
+                  <th>Critique</th>
+                  <th>Paper</th>
+                  <th>Slides</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--
+                  When a session from the homepage upcoming table is completed,
+                  move its row here (most recent first — reverse chronological).
+                  Use class="archive-row" on every <tr> for JS search filtering.
+                -->
+
+                <tr class="archive-row" data-date="2026-04-10">
+                  <td>Apr 10, 2026</td>
+                  <td>Alex Rivera</td>
+                  <td>Jane Doe</td>
+                  <td><a href="https://arxiv.org/abs/2401.04088" target="_blank" rel="noopener">Mixtral of Experts</a></td>
+                  <td>—</td>
+                </tr>
+
+                <tr class="archive-row" data-date="2026-04-03">
+                  <td>Apr 3, 2026</td>
+                  <td>John Smith</td>
+                  <td>Sam Patel</td>
+                  <td><a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">LoRA: Low-Rank Adaptation of Large Language Models</a></td>
+                  <td><a href="slides/2026-04-03-johnsmith.pdf">Slides (PDF)</a></td>
+                </tr>
+
+                <tr class="archive-row" data-date="2026-03-27">
+                  <td>Mar 27, 2026</td>
+                  <td>Maria Chen</td>
+                  <td>Alex Rivera</td>
+                  <td><a href="https://arxiv.org/abs/2312.00752" target="_blank" rel="noopener">Mamba: Linear-Time Sequence Modeling with Selective State Spaces</a></td>
+                  <td><a href="slides/2026-03-27-mariachen.pdf">Slides (PDF)</a></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div><!-- /table-wrapper -->
+        </div><!-- /#current-semester -->
+
+        <!-- ══════════════════════════════
+             PREVIOUS SEMESTERS (hidden by default)
+        ═══════════════════════════════ -->
+        <div id="previous-semesters" class="hidden">
+
+          <!-- Fall 2025 -->
+          <h2 class="text-2xl font-bold mb-4" style="color: var(--primary);">Fall 2025</h2>
+
+          <div class="table-wrapper mb-10">
+            <table class="mlrg-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Presenter</th>
+                  <th>Critique</th>
+                  <th>Paper</th>
+                  <th>Slides</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--
+                  At the start of a new semester, copy all "current-semester" rows here
+                  under their semester label. Most recent session first.
+                -->
+
+                <tr class="archive-row" data-date="2025-11-20">
+                  <td>Nov 20, 2025</td>
+                  <td>Sam Patel</td>
+                  <td>Maria Chen</td>
+                  <td><a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">LLaMA 2: Open Foundation and Fine-Tuned Chat Models</a></td>
+                  <td><a href="slides/2025-11-20-sampatel.pdf">Slides (PDF)</a></td>
+                </tr>
+
+                <tr class="archive-row" data-date="2025-11-13">
+                  <td>Nov 13, 2025</td>
+                  <td>Jane Doe</td>
+                  <td>John Smith</td>
+                  <td><a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">Constitutional AI: Harmlessness from AI Feedback</a></td>
+                  <td>—</td>
+                </tr>
+
+                <tr class="archive-row" data-date="2025-11-06">
+                  <td>Nov 6, 2025</td>
+                  <td>John Smith</td>
+                  <td>Sam Patel</td>
+                  <td><a href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener">High-Resolution Image Synthesis with Latent Diffusion Models</a></td>
+                  <td><a href="slides/2025-11-06-johnsmith.pdf">Slides (PDF)</a></td>
+                </tr>
+
+                <tr class="archive-row" data-date="2025-10-30">
+                  <td>Oct 30, 2025</td>
+                  <td>Maria Chen</td>
+                  <td>Alex Rivera</td>
+                  <td><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">Training Language Models to Follow Instructions with Human Feedback (InstructGPT)</a></td>
+                  <td>—</td>
+                </tr>
+
+                <tr class="archive-row" data-date="2025-10-23">
+                  <td>Oct 23, 2025</td>
+                  <td>Alex Rivera</td>
+                  <td>Jane Doe</td>
+                  <td><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a></td>
+                  <td><a href="slides/2025-10-23-alexrivera.pdf">Slides (PDF)</a></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div><!-- /table-wrapper Fall 2025 -->
+
+          <!-- Add more past semesters below as needed -->
+          <!--
+            Example structure for adding a new past semester:
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--primary);">Spring 2025</h2>
+            <div class="table-wrapper mb-10">
+              <table class="mlrg-table">
+                <thead>...</thead>
+                <tbody>
+                  <tr class="archive-row" data-date="YYYY-MM-DD">...</tr>
+                </tbody>
+              </table>
+            </div>
+          -->
+
+        </div><!-- /#previous-semesters -->
+
+      </div><!-- /content-wrap -->
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="py-6" style="background-color: var(--bg-dark);">
+    <div class="content-wrap flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center" style="color: var(--text-on-dark);">
+      <img src="assets/logo.svg" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
+      <span>
+        &copy; 2026 Machine Learning Reading Group &middot; University of Memphis. All rights reserved.
+      </span>
+      <a
+        href="https://github.com/Syudu41/ML-Reading-Group"
+        target="_blank"
+        rel="noopener"
+        class="hover:underline opacity-70 hover:opacity-100 transition-opacity"
+        style="color: var(--accent);"
+      >GitHub</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

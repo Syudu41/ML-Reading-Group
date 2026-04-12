@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | MLRG — Machine Learning Reading Group · University of Memphis</title>
+  <meta name="description" content="Join the MLRG reading group at the University of Memphis. Find meeting details, contact information, and how to get involved.">
+  <meta property="og:title" content="Contact | MLRG · Machine Learning Reading Group">
+  <meta property="og:description" content="Get involved with MLRG — the AI/ML paper reading group at the University of Memphis.">
+  <meta property="og:image" content="assets/og-image.png">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="min-h-screen">
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════════ -->
+  <nav id="main-nav" class="sticky top-0 z-50 shadow-md" style="background-color: var(--primary);">
+    <div class="content-wrap">
+      <div class="flex items-center justify-between h-14">
+
+        <a href="index.html" class="flex items-center gap-2 no-underline">
+          <img src="assets/logo.svg" alt="MLRG" class="h-8 w-8 rounded-full">
+          <span class="font-display font-bold text-lg" style="color: var(--text-on-dark);">MLRG</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-7">
+          <a href="index.html"   class="nav-link">Home</a>
+          <a href="archive.html" class="nav-link">Archive</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+
+        <button
+          id="hamburger-btn"
+          class="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded focus:outline-none"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          style="color: var(--text-on-dark);"
+        >
+          <span class="block w-6 h-0.5 bg-current"></span>
+          <span class="block w-6 h-0.5 bg-current"></span>
+          <span class="block w-6 h-0.5 bg-current"></span>
+        </button>
+
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 mt-1">
+        <a href="index.html"   class="nav-link-mobile">Home</a>
+        <a href="archive.html" class="nav-link-mobile">Archive</a>
+        <a href="contact.html" class="nav-link-mobile active">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════════════ -->
+  <main>
+    <div class="section-py" style="background-color: var(--bg-main);">
+      <div class="content-wrap">
+
+        <h1 class="font-display text-4xl font-black mb-10" style="color: var(--primary);">Get Involved</h1>
+
+        <div class="flex flex-col gap-6 max-w-2xl">
+
+          <!-- Card 1: Join the Reading Group -->
+          <div class="contact-card">
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 mr-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Join the Reading Group
+            </h2>
+            <!-- REPLACE: professor name and email -->
+            <p class="text-sm leading-relaxed" style="color: var(--text-primary);">
+              MLRG is open to all University of Memphis graduate students and researchers.
+              Contact <strong>[Professor Name]</strong> at
+              <a href="mailto:professor@memphis.edu" style="color: var(--primary-light);" class="hover:underline">[professor@memphis.edu]</a>
+              to join.
+            </p>
+            <!-- /REPLACE -->
+          </div>
+
+          <!-- Card 2: Join Our Teams Channel -->
+          <div class="contact-card">
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 mr-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              Join Our Teams Channel
+            </h2>
+            <p class="text-sm leading-relaxed mb-4" style="color: var(--text-primary);">
+              Stay connected with the group through Microsoft Teams. Get notified about upcoming sessions, share resources, and engage with the community.
+            </p>
+            <!-- REPLACE: Teams join URL -->
+            <a href="#" class="btn-primary text-sm" target="_blank" rel="noopener">
+              Join on Teams &rarr;
+            </a>
+            <!-- /REPLACE -->
+          </div>
+
+          <!-- Card 3: Meeting Details -->
+          <div class="contact-card">
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 mr-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Meeting Details
+            </h2>
+            <dl class="space-y-2 text-sm mt-1" style="color: var(--text-primary);">
+              <div class="flex gap-3">
+                <dt class="font-semibold w-24 flex-shrink-0" style="color: var(--text-secondary);">Day</dt>
+                <!-- REPLACE -->
+                <dd>[Day of week]</dd>
+                <!-- /REPLACE -->
+              </div>
+              <div class="flex gap-3">
+                <dt class="font-semibold w-24 flex-shrink-0" style="color: var(--text-secondary);">Time</dt>
+                <!-- REPLACE -->
+                <dd>[Start time &ndash; End time]</dd>
+                <!-- /REPLACE -->
+              </div>
+              <div class="flex gap-3">
+                <dt class="font-semibold w-24 flex-shrink-0" style="color: var(--text-secondary);">Location</dt>
+                <!-- REPLACE -->
+                <dd>[Building, Room Number]</dd>
+                <!-- /REPLACE -->
+              </div>
+              <div class="flex gap-3">
+                <dt class="font-semibold w-24 flex-shrink-0" style="color: var(--text-secondary);">Frequency</dt>
+                <dd>Weekly</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Card 4: Present a Paper -->
+          <div class="contact-card">
+            <h2>
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 mr-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Present a Paper
+            </h2>
+            <!-- REPLACE: organizer name and email -->
+            <p class="text-sm leading-relaxed" style="color: var(--text-primary);">
+              Want to lead a discussion? Email <strong>[Organizer Name]</strong> at
+              <a href="mailto:organizer@memphis.edu" style="color: var(--primary-light);" class="hover:underline">[organizer@memphis.edu]</a>
+              with your proposed paper and a preferred date. All skill levels are welcome to present.
+            </p>
+            <!-- /REPLACE -->
+          </div>
+
+        </div><!-- /flex column cards -->
+
+      </div><!-- /content-wrap -->
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="py-6" style="background-color: var(--bg-dark);">
+    <div class="content-wrap flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center" style="color: var(--text-on-dark);">
+      <img src="assets/logo.svg" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
+      <span>
+        &copy; 2026 Machine Learning Reading Group &middot; University of Memphis. All rights reserved.
+      </span>
+      <a
+        href="https://github.com/Syudu41/ML-Reading-Group"
+        target="_blank"
+        rel="noopener"
+        class="hover:underline opacity-70 hover:opacity-100 transition-opacity"
+        style="color: var(--accent);"
+      >GitHub</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
