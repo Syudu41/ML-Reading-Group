@@ -39,18 +39,10 @@ function initLandingAnimation() {
 
   const mainContent = document.getElementById('main-content');
 
-  // Skip on repeat visit in same tab
-  if (sessionStorage.getItem('mlrg-animated')) {
-    overlay.remove();
-    if (mainContent) mainContent.style.opacity = '1';
-    return;
-  }
-
   // Skip for users who prefer reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     overlay.remove();
     if (mainContent) mainContent.style.opacity = '1';
-    sessionStorage.setItem('mlrg-animated', 'true');
     return;
   }
 
@@ -84,8 +76,6 @@ function initLandingAnimation() {
             mainContent.style.transition = 'opacity 0.3s ease';
             mainContent.style.opacity = '1';
           }
-          // Mark animation as done for this tab session
-          sessionStorage.setItem('mlrg-animated', 'true');
         }, 620); // slightly longer than the 600ms fade
 
       }, 400);
