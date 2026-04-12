@@ -8,7 +8,7 @@
   <meta property="og:title" content="MLRG · Machine Learning Reading Group">
   <meta property="og:description" content="Weekly AI/ML paper discussions at the University of Memphis.">
   <meta property="og:image" content="assets/og-image.png">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logo.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
@@ -21,7 +21,7 @@
   ═══════════════════════════════════════════════════════════ -->
   <div id="landing-overlay" role="presentation" aria-hidden="true">
     <img
-      src="assets/logo.svg"
+      src="assets/logo.png"
       alt="MLRG Logo"
       class="overlay-logo"
     >
@@ -40,7 +40,7 @@
         <!-- Col 1: Logo (left) -->
         <div class="flex items-center">
           <a href="index.html" class="flex items-center gap-2 no-underline">
-            <img src="assets/logo.svg" alt="MLRG" class="h-8 w-8 rounded-full">
+            <img src="assets/logo.png" alt="MLRG" class="h-8 w-8 rounded-full">
             <span class="font-display font-bold text-lg" style="color: var(--text-on-dark);">MLRG</span>
           </a>
         </div>
@@ -110,7 +110,7 @@
     <section class="section-py" style="background-color: var(--bg-main);">
       <div class="content-wrap">
         <div class="flex flex-col items-center gap-4">
-          <img src="assets/logo.svg" alt="MLRG Logo" class="w-16 h-16 rounded-full shadow-md">
+          <img src="assets/logo.png" alt="MLRG Logo" class="w-16 h-16 rounded-full shadow-md">
           <h1 class="font-display text-4xl md:text-5xl font-black leading-tight text-center" style="color: var(--primary);">
             Machine Learning Reading Group
           </h1>
@@ -118,9 +118,16 @@
             University of Memphis &middot; Weekly Paper Discussions
           </p>
           <!-- REPLACE: welcome message text -->
-          <p class="max-w-2xl text-base leading-relaxed text-justify" style="color: var(--text-primary);">
-            Welcome to MLRG &mdash; exploring the frontiers of machine learning research, one paper at a time.
+          <p class="text-xl font-semibold italic text-center mt-1" style="color: var(--primary);">
+            Read deeply. Think critically. Share clearly.
           </p>
+          <p class="max-w-2xl text-base leading-relaxed text-justify" style="color: var(--text-primary);">
+            MLRG is a weekly paper reading group at the University of Memphis where we explore the latest and most
+            influential research in machine learning and AI. Each session features a deep-dive presentation on one
+            paper, a critique from a designated discussant, and open group discussion &mdash; because we move faster
+            and better together.
+          </p>
+          <!-- /REPLACE -->
         </div>
       </div>
     </section>
@@ -171,7 +178,7 @@
             <!-- Location -->
             <div class="flex items-center justify-center gap-2 text-sm mb-5" style="color: var(--text-secondary);">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span>Dunn Hall 310</span>
+              <span>Dunn Hall 107</span>
             </div>
 
             <hr class="card-divider w-full">
@@ -239,16 +246,17 @@
           <!-- REPLACE: scope content from philosophy PPT -->
           <div class="space-y-4 max-w-3xl mx-auto text-base leading-relaxed text-justify" style="color: var(--text-primary);">
             <p>
-              MLRG covers the full breadth of modern machine learning and AI research. Our sessions explore
-              foundational topics including deep learning architectures, natural language processing,
-              computer vision, reinforcement learning, and probabilistic modeling — from seminal works
-              that shaped the field to the latest preprints pushing its frontiers.
+              The pace of ML research is rapid and unrelenting &mdash; papers are the primary medium through which
+              new knowledge is created and shared. MLRG exists to provide the structure, accountability, and
+              collaborative energy needed to keep up. Each week we go beyond skimming: we read deeply, present
+              clearly, and question rigorously.
             </p>
             <p>
-              We place special emphasis on understanding <em>why</em> methods work, not just <em>how</em> to use them.
-              Papers are selected for their scientific rigor, novelty, and relevance to the group's
-              evolving research interests. Theoretical insights, empirical contributions, and
-              application papers are all in scope.
+              ML papers are often dense and mathematical. Skimming gives you breadth but risks misunderstanding;
+              deep reading gives you genuine understanding but demands time. Our group encourages both: one paper
+              receives a full presentation and critique each session, while participants are expected to survey a
+              small set of additional papers for breadth. Every session follows a consistent format &mdash;
+              30&ndash;40 minutes of presentation, 15&ndash;20 minutes of open discussion.
             </p>
           </div>
           <!-- /REPLACE -->
@@ -261,23 +269,23 @@
           <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
 
             <div class="principle-card">
-              <div class="principle-title">Rigor Over Hype</div>
-              <div class="principle-desc">We prioritize papers with strong empirical or theoretical foundations, not just trending topics.</div>
+              <div class="principle-title">Depth &amp; Breadth</div>
+              <div class="principle-desc">One paper per week receives a full deep-read and presentation. Participants also survey additional papers to maintain a broad horizon across ML sub-fields.</div>
             </div>
 
             <div class="principle-card">
-              <div class="principle-title">Open Discussion</div>
-              <div class="principle-desc">Every voice matters; questions and critiques are encouraged at all levels of expertise.</div>
+              <div class="principle-title">Critical Thinking</div>
+              <div class="principle-desc">We examine the intellectual merits and broader impacts of each paper &mdash; evaluating strengths, weaknesses, rigor, reproducibility, and relevance through active discussion and structured critique.</div>
             </div>
 
             <div class="principle-card">
-              <div class="principle-title">Breadth &amp; Depth</div>
-              <div class="principle-desc">We span sub-fields to maintain a broad ML horizon while diving deep into each paper's core ideas.</div>
+              <div class="principle-title">Communication &amp; Citizenship</div>
+              <div class="principle-desc">Constructive participation from all members is expected and valued. We embrace diverse perspectives and the many ways ML research touches different fields and communities.</div>
             </div>
 
             <div class="principle-card">
-              <div class="principle-title">Community First</div>
-              <div class="principle-desc">We build a supportive research community across labs and departments at the University of Memphis.</div>
+              <div class="principle-title">Consistency &amp; Co-Learning</div>
+              <div class="principle-desc">Building deep knowledge of ML takes consistent and concerted effort. We hold each other accountable and grow together &mdash; because we move faster and better as a group.</div>
             </div>
 
           </div>
@@ -288,10 +296,12 @@
         <div class="mb-10">
           <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Who Should Attend</h3>
           <p class="max-w-3xl mx-auto text-base leading-relaxed text-justify" style="color: var(--text-primary);">
-            MLRG is open to all University of Memphis graduate students, postdocs, and faculty with an interest
-            in machine learning research. No prior expertise is required &mdash; curiosity is the only
-            prerequisite. Sessions are held weekly and typically include a 30-minute presentation followed by
-            an open discussion. Whether you are new to the field or an active researcher, you are welcome here.
+            MLRG is open to all University of Memphis graduate students and researchers interested in machine
+            learning. Presentations rotate among group members &mdash; every participant is encouraged to lead a
+            session. A designated discussant prepares critiques for each paper. Participants are also expected to
+            survey a small set of additional papers each week (typically 5, or 3 if managing heavy coursework or
+            TA duties), logging a brief summary with strengths and weaknesses for each. All communication and
+            materials are shared through Microsoft Teams.
           </p>
         </div>
 
@@ -312,7 +322,7 @@
   ═══════════════════════════════════════════════════════════ -->
   <footer class="py-6" style="background-color: var(--bg-dark);">
     <div class="content-wrap flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center" style="color: var(--text-on-dark);">
-      <img src="assets/logo.svg" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
+      <img src="assets/logo.png" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
       <span>
         &copy; 2026 Machine Learning Reading Group &middot; University of Memphis. All rights reserved.
       </span>

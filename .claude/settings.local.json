@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Bash(where py:*)",
+      "Bash(py -c ':*)",
+      "Bash(powershell -Command \"\\(Get-Content 'd:/University of Memphis/PhD/ML-Reading-Group/index.html'\\) -replace 'assets/logo\\\\.svg','assets/logo.png' -replace 'type=\\\\\"image/svg\\\\+xml\\\\\"','type=\\\\\"image/png\\\\\"' | Set-Content 'd:/University of Memphis/PhD/ML-Reading-Group/index.html'; \\(Get-Content 'd:/University of Memphis/PhD/ML-Reading-Group/archive.html'\\) -replace 'assets/logo\\\\.svg','assets/logo.png' -replace 'type=\\\\\"image/svg\\\\+xml\\\\\"','type=\\\\\"image/png\\\\\"' | Set-Content 'd:/University of Memphis/PhD/ML-Reading-Group/archive.html'; \\(Get-Content 'd:/University of Memphis/PhD/ML-Reading-Group/contact.html'\\) -replace 'assets/logo\\\\.svg','assets/logo.png' -replace 'type=\\\\\"image/svg\\\\+xml\\\\\"','type=\\\\\"image/png\\\\\"' | Set-Content 'd:/University of Memphis/PhD/ML-Reading-Group/contact.html'; Write-Host 'Done'\")"
+    ]
+  }
+}
