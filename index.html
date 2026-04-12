@@ -35,45 +35,64 @@
   ═══════════════════════════════════════════════════════════ -->
   <nav id="main-nav" class="sticky top-0 z-50 shadow-md" style="background-color: var(--primary);">
     <div class="content-wrap">
-      <div class="flex items-center justify-between h-14">
+      <div class="grid grid-cols-3 items-center h-14">
 
-        <!-- Left: logo + brand -->
-        <a href="index.html" class="flex items-center gap-2 no-underline">
-          <img src="assets/logo.svg" alt="MLRG" class="h-8 w-8 rounded-full">
-          <span class="font-display font-bold text-lg" style="color: var(--text-on-dark);">MLRG</span>
-        </a>
-
-        <!-- Desktop nav links -->
-        <div class="hidden md:flex items-center gap-7">
-          <a href="index.html"   class="nav-link active">Home</a>
-          <a href="archive.html" class="nav-link">Archive</a>
-          <a href="contact.html" class="nav-link">Contact</a>
+        <!-- Col 1: Logo (left) -->
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center gap-2 no-underline">
+            <img src="assets/logo.svg" alt="MLRG" class="h-8 w-8 rounded-full">
+            <span class="font-display font-bold text-lg" style="color: var(--text-on-dark);">MLRG</span>
+          </a>
         </div>
 
-        <!-- Hamburger (mobile only) -->
-        <button
-          id="hamburger-btn"
-          class="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded focus:outline-none"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          style="color: var(--text-on-dark);"
-        >
-          <span class="block w-6 h-0.5 bg-current"></span>
-          <span class="block w-6 h-0.5 bg-current"></span>
-          <span class="block w-6 h-0.5 bg-current"></span>
-        </button>
+        <!-- Col 2: Nav links (centered) — desktop only -->
+        <div class="hidden md:flex items-center justify-center gap-8">
+          <a href="index.html" class="nav-link active">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Home
+          </a>
+          <a href="archive.html" class="nav-link">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+            Archive
+          </a>
+          <a href="contact.html" class="nav-link">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Contact
+          </a>
+        </div>
 
-      </div><!-- /flex row -->
+        <!-- Col 3: Hamburger (right, mobile only) -->
+        <div class="flex justify-end">
+          <button
+            id="hamburger-btn"
+            class="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded focus:outline-none"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            style="color: var(--text-on-dark);"
+          >
+            <span class="block w-6 h-0.5 bg-current"></span>
+            <span class="block w-6 h-0.5 bg-current"></span>
+            <span class="block w-6 h-0.5 bg-current"></span>
+          </button>
+        </div>
+
+      </div><!-- /grid row -->
 
       <!-- Mobile menu (hidden by default) -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden pb-4 border-t border-white/10 mt-1"
-      >
-        <a href="index.html"   class="nav-link-mobile active">Home</a>
-        <a href="archive.html" class="nav-link-mobile">Archive</a>
-        <a href="contact.html" class="nav-link-mobile">Contact</a>
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 mt-1">
+        <a href="index.html" class="nav-link-mobile active">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Home
+        </a>
+        <a href="archive.html" class="nav-link-mobile">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+          Archive
+        </a>
+        <a href="contact.html" class="nav-link-mobile">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Contact
+        </a>
       </div>
 
     </div><!-- /content-wrap -->
@@ -89,22 +108,40 @@
          SECTION B: Welcome
     ──────────────────────────────────────────────────────────── -->
     <section class="section-py" style="background-color: var(--bg-main);">
-      <div class="content-wrap text-center">
+      <div class="content-wrap">
         <div class="flex flex-col items-center gap-4">
           <img src="assets/logo.svg" alt="MLRG Logo" class="w-16 h-16 rounded-full shadow-md">
-          <h1 class="font-display text-4xl md:text-5xl font-black leading-tight" style="color: var(--primary);">
+          <h1 class="font-display text-4xl md:text-5xl font-black leading-tight text-center" style="color: var(--primary);">
             Machine Learning Reading Group
           </h1>
-          <p class="text-base font-semibold tracking-wide uppercase" style="color: var(--text-secondary);">
+          <p class="text-base font-semibold tracking-wide uppercase text-center" style="color: var(--text-secondary);">
             University of Memphis &middot; Weekly Paper Discussions
           </p>
           <!-- REPLACE: welcome message text -->
-          <p class="max-w-2xl text-base leading-relaxed" style="color: var(--text-primary);">
+          <p class="max-w-2xl text-base leading-relaxed text-justify" style="color: var(--text-primary);">
             Welcome to MLRG &mdash; exploring the frontiers of machine learning research, one paper at a time.
           </p>
         </div>
       </div>
     </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         NEWS BLOCK — centered banner above card + calendar
+    ──────────────────────────────────────────────────────────── -->
+    <div class="py-3 text-center" style="background-color: var(--bg-card); border-bottom: 1px solid var(--border);">
+      <div class="content-wrap">
+        <div class="inline-flex items-center justify-center gap-2 text-sm">
+          <svg class="w-4 h-4 flex-shrink-0" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+          </svg>
+          <span class="font-semibold" style="color: var(--primary);">News</span>
+          <span class="mx-1" style="color: var(--border);">|</span>
+          <!-- REPLACE: update with news items when available -->
+          <span style="color: var(--text-secondary);">No news updates at this time. Check back soon.</span>
+          <!-- /REPLACE -->
+        </div>
+      </div>
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────
          SECTION C: Next Session + Calendar (Side by Side)
@@ -125,9 +162,10 @@
             <!-- REPLACE: next session details -->
 
             <!-- Date & time -->
+            <!-- REPLACE: update date each week to the next Tuesday session -->
             <div class="flex items-center justify-center gap-2 text-sm mb-1 font-semibold" style="color: var(--text-primary);">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span>Thursday, April 17, 2026 &middot; 3:00 PM</span>
+              <span>Tuesday, April 14, 2026 &middot; 4:30 PM</span>
             </div>
 
             <!-- Location -->
@@ -169,21 +207,18 @@
             <!-- /REPLACE -->
           </div>
 
-          <!-- Right: Google Calendar Embed -->
+          <!-- Right: Group Calendar (custom widget) -->
           <div class="flex flex-col gap-3 h-full">
-            <h2 class="text-xl font-bold" style="color: var(--primary);">Group Calendar</h2>
-            <!-- REPLACE: update PLACEHOLDER_CALENDAR_ID with real Google Calendar ID -->
-            <div class="flex-1" style="min-height: 400px;">
-              <iframe
-                src="https://calendar.google.com/calendar/embed?src=PLACEHOLDER_CALENDAR_ID&ctz=America/Chicago"
-                style="border: 0; border-radius: 12px; width: 100%; height: 100%; min-height: 400px;"
-                frameborder="0"
-                scrolling="no"
-                title="MLRG Group Calendar"
-              ></iframe>
-            </div>
-            <p class="text-sm" style="color: var(--text-secondary);">
-              Subscribe to this calendar to stay updated.
+            <h2 class="text-xl font-bold text-center" style="color: var(--primary);">Group Calendar</h2>
+            <!--
+              Custom calendar widget — Spring 2026 Tuesday sessions (4:30–5:30 PM).
+              Hover a highlighted date to see session details.
+              REPLACE: if a Teams meeting link is created, add it to the Next Session
+              card above as a "Join on Teams →" button.
+            -->
+            <div id="mlrg-calendar-widget" class="flex-1"></div>
+            <p class="text-sm text-center" style="color: var(--text-secondary);">
+              Hover a highlighted date to see session details.
             </p>
           </div>
 
@@ -200,9 +235,9 @@
 
         <!-- Sub-section 1: What We Read -->
         <div class="mb-10">
-          <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">What We Read</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">What We Read</h3>
           <!-- REPLACE: scope content from philosophy PPT -->
-          <div class="space-y-4 max-w-3xl text-base leading-relaxed" style="color: var(--text-primary);">
+          <div class="space-y-4 max-w-3xl mx-auto text-base leading-relaxed text-justify" style="color: var(--text-primary);">
             <p>
               MLRG covers the full breadth of modern machine learning and AI research. Our sessions explore
               foundational topics including deep learning architectures, natural language processing,
@@ -221,9 +256,9 @@
 
         <!-- Sub-section 2: Our Principles -->
         <div class="mb-10">
-          <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">Our Principles</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Our Principles</h3>
           <!-- REPLACE: principles and pillars content from philosophy PPT -->
-          <div class="grid sm:grid-cols-2 gap-4 max-w-3xl">
+          <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
 
             <div class="principle-card">
               <div class="principle-title">Rigor Over Hype</div>
@@ -251,8 +286,8 @@
 
         <!-- Sub-section 3: Who Should Attend -->
         <div class="mb-10">
-          <h3 class="text-xl font-bold mb-4" style="color: var(--primary);">Who Should Attend</h3>
-          <p class="max-w-3xl text-base leading-relaxed" style="color: var(--text-primary);">
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Who Should Attend</h3>
+          <p class="max-w-3xl mx-auto text-base leading-relaxed text-justify" style="color: var(--text-primary);">
             MLRG is open to all University of Memphis graduate students, postdocs, and faculty with an interest
             in machine learning research. No prior expertise is required &mdash; curiosity is the only
             prerequisite. Sessions are held weekly and typically include a 30-minute presentation followed by
@@ -261,9 +296,11 @@
         </div>
 
         <!-- CTA -->
-        <a href="contact.html" class="btn-primary">
-          Want to join? &rarr; Contact page
-        </a>
+        <div class="flex justify-center mt-2">
+          <a href="contact.html" class="btn-primary">
+            Want to join? &rarr; Contact page
+          </a>
+        </div>
 
       </div>
     </section>

@@ -20,6 +20,23 @@ Do not revert to the left-aligned `dl` row layout.
 
 ---
 
+## Color Palette — University of Memphis Brand (do not revert)
+
+Primary = `#003087` (UofM Royal Blue), Accent = `#FDB927` (UofM Gold).
+- Do NOT revert to the old navy (#2C3E6B) or light blue (#4EA8DE) palette
+- `.btn-primary` uses gold background (`--accent`) with dark text (`--bg-dark`)
+- Table row hover shows a gold left-accent bar (`inset 3px 0 0 var(--accent)`)
+- Calendar upcoming cells are gold-tinted; past cells are blue-tinted
+
+## Calendar Widget — Self-Maintaining
+
+`initCalendar()` in `js/main.js` calls `buildMeetings()` on every render.
+`buildMeetings()` computes 'past' vs 'upcoming' dynamically from `new Date()`.
+There is no Google Calendar and there will never be one.
+If a Teams meeting link is created, add it as a "Join on Teams →" button to the Next Session card in `index.html` Section C.
+
+---
+
 ## Font Stack (do not revert)
 
 Font was changed from DM Sans + Playfair Display to **Inter + Segoe UI** after user feedback.

@@ -32,6 +32,52 @@
 
 ---
 
+## 2026-04-11 — Issue Fixes (Round 5)
+
+| Change | Files Affected |
+|---|---|
+| Color palette replaced with University of Memphis brand colors (Royal Blue `#003087` + Gold `#FDB927`) | `css/custom.css` |
+| `--accent-dark` token added for gold hover states | `css/custom.css` |
+| `.btn-primary` now uses UofM Gold background with dark navy text | `css/custom.css` |
+| Table hover accent bar changed from `--primary-light` to `--accent` (gold) | `css/custom.css` |
+| Calendar past cell tint updated to UofM Blue; upcoming cell tint changed to gold | `css/custom.css` |
+| Calendar `buildMeetings()` now computes past/upcoming dynamically from `new Date()` each render | `js/main.js` |
+| Calendar legend updated to Royal Blue + Gold dots | `js/main.js` |
+| Logo SVG updated to Royal Blue + Gold ring | `assets/logo.svg` |
+| Google Calendar iframe comment removed; Teams link note added | `index.html` |
+| Confirmed: no Google Calendar ID will ever exist; Teams meeting link may be added later | `index.html` |
+
+---
+
+## 2026-04-11 — Issue Fixes (Round 4)
+
+| Change | Files Affected |
+|---|---|
+| Text justification corrected: body paragraphs now `text-justify`; headings/subtitles keep `text-center` | `index.html`, `contact.html`, `css/custom.css` |
+| Removed cascading `text-center` from `content-wrap` in Section B; applied per-element | `index.html` |
+| Google Calendar iframe replaced with custom JS calendar widget (Spring 2026 Tuesdays, hover tooltips) | `index.html`, `js/main.js`, `css/custom.css` |
+| `initCalendar()` added to `main.js`: renders month-view with past (navy, "Completed") and upcoming (green, "Coming Soon") meetings | `js/main.js` |
+| Calendar CSS added: cell styles, tooltip, legend, today highlight | `css/custom.css` |
+| Original Google Calendar iframe preserved as a comment for future use | `index.html` |
+
+---
+
+## 2026-04-11 — Issue Fixes (Round 3)
+
+| Change | Files Affected |
+|---|---|
+| Navbar redesigned: 3-column grid (logo left, links centered, hamburger right); SVG icons added to all 3 nav links + mobile menu | All 3 HTML files, `css/custom.css` |
+| News banner block added above Section C (card + calendar); shows "No news updates" placeholder | `index.html` |
+| Next Session card date updated to Tuesday, April 14, 2026 · 4:30 PM | `index.html` |
+| All continuous body text (About paragraphs, contact card paragraphs) centered | `index.html`, `contact.html` |
+| All h3 sub-headings in About section centered | `index.html` |
+| CTA button in About section centered | `index.html` |
+| Contact page cards centered (cards are `mx-auto`); paragraph text centered | `contact.html` |
+| Meeting Details updated: Day = Tuesday, Time = 4:30–5:30 PM, Frequency note includes Spring sem dates | `contact.html` |
+| Archive Spring 2026 table: replaced fake rows with all 13 past Tuesdays (Jan 13–Apr 7); no fake presenter/paper data | `archive.html` |
+
+---
+
 ## 2026-04-11 — Issue Fixes (Round 2)
 
 | Change | Files Affected |

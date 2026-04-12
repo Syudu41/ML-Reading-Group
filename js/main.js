@@ -220,7 +220,159 @@ function initMobileNav() {
   });
 }
 
-/* ── 6. Init ─────────────────────────────────────────────────── */
+/* ── 6. Custom Calendar Widget ──────────────────────────────── */
+/**
+ * Renders a custom month-view calendar into #mlrg-calendar-widget.
+ * Spring 2026 Tuesday meetings are highlighted:
+ *   - Past meetings: hoverable tooltip showing "MLRG Session · Completed"
+ *   - Upcoming meetings: hoverable tooltip showing "Coming Soon"
+ * Month navigation with prev/next buttons.
+ */
+function initCalendar() {
+  var container = document.getElementById('mlrg-calendar-widget');
+  if (!container) return;
+
+  // All Spring 2026 Tuesday meeting dates (Jan 12 – Apr 30).
+  // Status is computed dynamically at render time against today's date —
+  // the calendar is self-maintaining: no manual updates needed as weeks pass.
+  var meetingDates = [
+    '2026-01-13','2026-01-20','2026-01-27',
+    '2026-02-03','2026-02-10','2026-02-17','2026-02-24',
+    '2026-03-03','2026-03-10','2026-03-17','2026-03-24','2026-03-31',
+    '2026-04-07','2026-04-14','2026-04-21','2026-04-28'
+  ];
+
+  // Build lookup: dateKey → 'past' | 'today-meeting' | 'upcoming'
+  // Comparison is done fresh each render against new Date().
+  function buildMeetings() {
+    var now = new Date();
+    // Normalise to midnight for clean date comparison
+    var todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var meetings = {};
+    meetingDates.forEach(function (d) {
+      var parts = d.split('-');
+      var meetDay = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+      if (meetDay < todayMidnight) {
+        meetings[d] = 'past';
+      } else if (meetDay.getTime() === todayMidnight.getTime()) {
+        meetings[d] = 'past'; // meeting day itself treated as past (already started)
+      } else {
+        meetings[d] = 'upcoming';
+      }
+    });
+    return meetings;
+  }
+
+  var MONTH_NAMES = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December'
+  ];
+  var DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  // Default to April 2026
+  var curYear  = 2026;
+  var curMonth = 3; // 0-indexed (3 = April)
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function dateKey(y, m, d) {
+    return pad(y) + '-' + pad(m + 1) + '-' + pad(d);
+  }
+
+  function buildTooltip(status, dateStr) {
+    var parts = dateStr.split('-');
+    var d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+    var label = MONTH_NAMES[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    if (status === 'past') {
+      return '<div class="cal-tooltip">'
+        + '<strong>MLRG Session</strong><br>'
+        + label + '<br>'
+        + '4:30 &ndash; 5:30 PM<br>'
+        + '<span class="cal-tag past">Completed</span><br>'
+        + '<small style="opacity:0.75">See Archive for details</small>'
+        + '</div>';
+    } else {
+      return '<div class="cal-tooltip">'
+        + '<strong>MLRG Session</strong><br>'
+        + label + '<br>'
+        + '4:30 &ndash; 5:30 PM<br>'
+        + '<span class="cal-tag upcoming">Coming Soon</span>'
+        + '</div>';
+    }
+  }
+
+  function render() {
+    var meetings     = buildMeetings();  // recomputed on every render from today's date
+    var firstDay     = new Date(curYear, curMonth, 1).getDay();
+    var daysInMonth  = new Date(curYear, curMonth + 1, 0).getDate();
+
+    var html = '<div class="cal-header">'
+      + '<button class="cal-nav" id="cal-prev" aria-label="Previous month">&#8249;</button>'
+      + '<span class="cal-month-title">' + MONTH_NAMES[curMonth] + ' ' + curYear + '</span>'
+      + '<button class="cal-nav" id="cal-next" aria-label="Next month">&#8250;</button>'
+      + '</div>'
+      + '<div class="cal-grid">';
+
+    // Day-name header row
+    DAY_NAMES.forEach(function (n) {
+      html += '<div class="cal-day-name">' + n + '</div>';
+    });
+
+    // Empty cells before month starts
+    for (var e = 0; e < firstDay; e++) {
+      html += '<div class="cal-cell cal-empty"></div>';
+    }
+
+    // "today" ring — computed fresh each render
+    var _now = new Date();
+    var todayKey = pad(_now.getFullYear()) + '-' + pad(_now.getMonth() + 1) + '-' + pad(_now.getDate());
+
+    // Day cells
+    for (var day = 1; day <= daysInMonth; day++) {
+      var key    = dateKey(curYear, curMonth, day);
+      var status = meetings[key] || null;
+      var isToday = (key === todayKey);
+
+      var cls = 'cal-cell';
+      if (status === 'past')     cls += ' cal-past';
+      if (status === 'upcoming') cls += ' cal-upcoming';
+      if (isToday)               cls += ' cal-today';
+
+      var tabIdx = status ? '0' : '-1';
+      var tooltip = status ? buildTooltip(status, key) : '';
+      var dot     = status ? '<span class="cal-dot"></span>' : '';
+
+      html += '<div class="' + cls + '" tabindex="' + tabIdx + '">'
+        + '<span class="cal-day-num">' + day + '</span>'
+        + dot
+        + tooltip
+        + '</div>';
+    }
+
+    html += '</div>' // end .cal-grid
+      + '<div class="cal-legend">'
+      + '<span><span class="cal-legend-dot" style="background:var(--primary)"></span>Past session</span>'
+      + '<span><span class="cal-legend-dot" style="background:var(--accent)"></span>Coming Soon</span>'
+      + '</div>';
+
+    container.innerHTML = html;
+
+    document.getElementById('cal-prev').addEventListener('click', function () {
+      curMonth--;
+      if (curMonth < 0) { curMonth = 11; curYear--; }
+      render();
+    });
+    document.getElementById('cal-next').addEventListener('click', function () {
+      curMonth++;
+      if (curMonth > 11) { curMonth = 0; curYear++; }
+      render();
+    });
+  }
+
+  render();
+}
+
+/* ── 7. Init ─────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
   // Landing animation — only on index.html (overlay element exists)
   if (document.getElementById('landing-overlay')) {
@@ -233,6 +385,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (document.getElementById('archive-search')) {
     initArchiveSearch();
+  }
+
+  // Custom calendar — only on index.html
+  if (document.getElementById('mlrg-calendar-widget')) {
+    initCalendar();
   }
 
   // Mobile nav — all pages

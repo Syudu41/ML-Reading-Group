@@ -11,17 +11,21 @@
 
 /* ── 1. Design Tokens ────────────────────────────────────────── */
 :root {
-  --primary:        #2C3E6B;  /* Deep navy — navbar, headings, primary buttons */
-  --primary-light:  #3D5A99;  /* Hover states, active links */
-  --accent:         #4EA8DE;  /* CTA highlights, upcoming badges */
-  --bg-main:        #F8F9FC;  /* Page background */
-  --bg-card:        #FFFFFF;  /* Card surfaces, table rows */
-  --bg-dark:        #1A1F35;  /* Landing overlay, footer */
-  --text-primary:   #1E293B;  /* Body text */
-  --text-secondary: #64748B;  /* Captions, secondary info */
-  --text-on-dark:   #E2E8F0;  /* Text on dark backgrounds */
-  --border:         #E2E8F0;  /* Table borders, card outlines */
-  --success:        #22C55E;  /* "Upcoming" badge */
+  /* University of Memphis brand colors
+     Primary  = UofM Royal Blue  (#003087)
+     Accent   = UofM Gold        (#FDB927)  — active links, CTAs, highlights  */
+  --primary:        #003087;  /* UofM Royal Blue — navbar, headings */
+  --primary-light:  #1A56DB;  /* Lighter blue — gradients, hover */
+  --accent:         #FDB927;  /* UofM Gold — active links, CTAs, badges */
+  --accent-dark:    #C98A00;  /* Darker gold for hover states on gold elements */
+  --bg-main:        #F5F7FC;  /* Cool-white page background */
+  --bg-card:        #FFFFFF;  /* Card surfaces */
+  --bg-dark:        #001A52;  /* Deep navy — footer, overlay */
+  --text-primary:   #0F172A;  /* Near-black body text */
+  --text-secondary: #4A5E82;  /* Blue-grey secondary / captions */
+  --text-on-dark:   #EEF2FF;  /* Text on dark navy backgrounds */
+  --border:         #D8E1EF;  /* Subtle blue-tinted borders */
+  --success:        #16A34A;  /* Green — "Upcoming" / success badge */
 }
 
 /* ── 2. Base ─────────────────────────────────────────────────── */
@@ -172,12 +176,12 @@ footer {
 }
 
 .mlrg-table tbody tr:nth-child(even) {
-  background-color: #F4F7FD;
+  background-color: #EEF2FA;
 }
 
 .mlrg-table tbody tr:hover {
-  background-color: #E5EDF8;
-  box-shadow: inset 3px 0 0 var(--primary-light);
+  background-color: #E0E9F8;
+  box-shadow: inset 3px 0 0 var(--accent);
 }
 
 .mlrg-table tbody tr:last-child td {
@@ -216,17 +220,29 @@ footer {
 
 /* ── 7. Active Nav Link ───────────────────────────────────────── */
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   color: var(--text-on-dark);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem;
   padding: 0.25rem 0;
   position: relative;
   transition: color 0.15s ease;
 }
 
+.nav-link svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
 .nav-link:hover {
   color: var(--accent);
 }
+
+.nav-link:hover svg { opacity: 1; }
 
 .nav-link.active {
   color: var(--accent);
@@ -234,12 +250,16 @@ footer {
   padding-bottom: 2px;
 }
 
+.nav-link.active svg { opacity: 1; }
+
 /* Mobile nav link variant */
 .nav-link-mobile {
   color: var(--text-on-dark);
   text-decoration: none;
   font-weight: 500;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.6rem 0;
   transition: color 0.15s ease;
 }
@@ -316,6 +336,7 @@ footer {
 .principle-card .principle-desc {
   font-size: 0.9rem;
   color: var(--text-secondary);
+  text-align: justify;
 }
 
 /* ── 12. CTA Button ──────────────────────────────────────────── */
@@ -323,9 +344,9 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background-color: var(--primary);
-  color: #fff;
-  font-weight: 600;
+  background-color: var(--accent);       /* UofM Gold */
+  color: var(--bg-dark);                 /* Deep navy text on gold */
+  font-weight: 700;
   padding: 0.6rem 1.4rem;
   border-radius: 8px;
   text-decoration: none;
@@ -334,8 +355,8 @@ footer {
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-light);
-  box-shadow: 0 4px 12px rgba(44, 62, 107, 0.2);
+  background-color: var(--accent-dark);
+  box-shadow: 0 4px 12px rgba(253, 185, 39, 0.35);
 }
 
 /* ── 13. Contact Cards ───────────────────────────────────────── */
@@ -384,7 +405,195 @@ footer {
   border-radius: 0 9999px 9999px 0;
 }
 
-/* ── 15. Reduced-Motion Override ─────────────────────────────── */
+/* ── 15. Custom Calendar Widget ─────────────────────────────── */
+#mlrg-calendar-widget {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem 1rem 1rem;
+  box-shadow: 0 4px 6px -1px rgba(44,62,107,0.07), 0 10px 24px -4px rgba(44,62,107,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 380px;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.cal-month-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+}
+
+.cal-nav {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.55rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--primary);
+  transition: background-color 0.12s ease;
+}
+.cal-nav:hover { background-color: var(--bg-main); }
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  flex: 1;
+}
+
+.cal-day-name {
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 0.3rem 0 0.4rem;
+}
+
+.cal-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.3rem 0.1rem 0.2rem;
+  border-radius: 6px;
+  min-height: 2.4rem;
+  cursor: default;
+  transition: background-color 0.1s ease;
+}
+
+.cal-cell.cal-empty { background: transparent; }
+
+.cal-day-num {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Today ring */
+.cal-cell.cal-today .cal-day-num {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Past meeting day — UofM Blue tint */
+.cal-cell.cal-past {
+  background: #E8EEF8;
+  cursor: pointer;
+}
+.cal-cell.cal-past .cal-day-num { color: var(--primary); font-weight: 700; }
+.cal-cell.cal-past:hover { background: #CDD9F0; }
+
+/* Upcoming meeting day — Gold tint */
+.cal-cell.cal-upcoming {
+  background: #FEF3C7;
+  cursor: pointer;
+}
+.cal-cell.cal-upcoming .cal-day-num { color: #92400E; font-weight: 700; }
+.cal-cell.cal-upcoming:hover { background: #FDE68A; }
+
+/* Event dot */
+.cal-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.cal-past     .cal-dot { background: var(--primary); }
+.cal-upcoming .cal-dot { background: var(--accent); }
+
+/* Tooltip */
+.cal-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  z-index: 200;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.cal-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--bg-dark);
+}
+
+.cal-cell:hover .cal-tooltip,
+.cal-cell:focus-visible .cal-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cal-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-top: 2px;
+  letter-spacing: 0.03em;
+}
+.cal-tag.past     { background: var(--primary);   color: #fff; }
+.cal-tag.upcoming { background: var(--accent);    color: var(--bg-dark); font-weight: 700; }
+
+/* Legend row */
+.cal-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+.cal-legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* ── 16. Reduced-Motion Override ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
