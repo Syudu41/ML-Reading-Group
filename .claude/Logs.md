@@ -32,6 +32,19 @@
 
 ---
 
+## 2026-04-11 — Issue Fixes (Round 1)
+
+| Change | Files Affected |
+|---|---|
+| Font changed from DM Sans + Playfair Display → Inter + Segoe UI | `css/custom.css`, all 3 HTML files |
+| Body is now a flex column (`min-height: 100vh`); `main`/`#main-content` get `flex: 1` | `css/custom.css` |
+| Footer always at page bottom regardless of content length | `css/custom.css` (via flex layout) |
+| Archive h1, toggle buttons, search input, section h2s all centered | `archive.html` |
+| Contact h1 centered | `contact.html` |
+| Upcoming Presentations + About MLRG headings centered | `index.html` |
+
+---
+
 ## Session Notes
 
 - Tech stack: vanilla HTML5, Tailwind CDN, vanilla JS, no build step (as specified)

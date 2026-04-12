@@ -10,10 +10,10 @@
   <meta property="og:image" content="assets/og-image.png">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="min-h-screen">
+<body>
 
   <!-- ══════════════════════════════════════════════════════════
        NAVBAR
@@ -65,16 +65,16 @@
       <div class="content-wrap">
 
         <!-- Page heading -->
-        <h1 class="font-display text-4xl font-black mb-6" style="color: var(--primary);">Archive</h1>
+        <h1 class="font-display text-4xl font-black mb-6 text-center" style="color: var(--primary);">Archive</h1>
 
         <!-- Toggle button group -->
-        <div class="flex mb-5" role="group" aria-label="Archive section toggle">
+        <div class="flex justify-center mb-5" role="group" aria-label="Archive section toggle">
           <button id="btn-current"  class="toggle-btn active" aria-pressed="true">Current Semester</button>
           <button id="btn-previous" class="toggle-btn"        aria-pressed="false">Previous Semesters</button>
         </div>
 
         <!-- Search input -->
-        <div class="mb-8 max-w-md">
+        <div class="mb-8 max-w-md mx-auto">
           <label for="archive-search" class="sr-only">Search archive</label>
           <div class="relative">
             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color: var(--text-secondary);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -99,7 +99,7 @@
              CURRENT SEMESTER (visible by default)
         ═══════════════════════════════ -->
         <div id="current-semester">
-          <h2 class="text-2xl font-bold mb-4" style="color: var(--primary);">Spring 2026</h2>
+          <h2 class="text-2xl font-bold mb-4 text-center" style="color: var(--primary);">Spring 2026</h2>
 
           <div class="table-wrapper">
             <table class="mlrg-table">
@@ -154,7 +154,7 @@
         <div id="previous-semesters" class="hidden">
 
           <!-- Fall 2025 -->
-          <h2 class="text-2xl font-bold mb-4" style="color: var(--primary);">Fall 2025</h2>
+          <h2 class="text-2xl font-bold mb-4 text-center" style="color: var(--primary);">Fall 2025</h2>
 
           <div class="table-wrapper mb-10">
             <table class="mlrg-table">

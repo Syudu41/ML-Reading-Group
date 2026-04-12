@@ -5,6 +5,31 @@ Claude must read this before editing any MLRG website files.
 
 ---
 
+## Font Stack (do not revert)
+
+Font was changed from DM Sans + Playfair Display to **Inter + Segoe UI** after user feedback.
+- Google Fonts link: `Inter:wght@400;500;600;700;800;900` + `JetBrains+Mono`
+- CSS stack: `'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif`
+- `.font-display` class now uses Inter 800 with tight tracking (not a serif font)
+- Do NOT reintroduce Playfair Display or DM Sans
+
+## Footer Positioning (do not break)
+
+Body uses `display: flex; flex-direction: column; min-height: 100vh` in custom.css.
+`main` and `#main-content` use `flex: 1 0 auto`. Footer uses `flex-shrink: 0`.
+This ensures the footer is always at the bottom — do not remove these CSS rules.
+Do NOT add `min-h-screen` to `<body>` in HTML (the CSS handles it).
+
+## Heading Centering
+
+All page-level and section headings are centered (`text-center`):
+- `index.html`: h1 welcome, "Upcoming Presentations" h2, "About MLRG" h2, sub-section h3s
+- `archive.html`: h1 "Archive", semester h2s ("Spring 2026", "Fall 2025")
+- `contact.html`: h1 "Get Involved"
+- The toggle buttons and search input on `archive.html` are also centered
+
+---
+
 ## Hard Constraints (never violate)
 
 | Rule | Reason |
