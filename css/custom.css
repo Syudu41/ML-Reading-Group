@@ -1,0 +1,349 @@
+/* =============================================================
+   MLRG — Machine Learning Reading Group · University of Memphis
+   Custom CSS  (Tailwind handles utilities; this file owns:
+     1. CSS custom properties (design tokens)
+     2. Animation keyframes
+     3. Badge styles
+     4. Table styles
+     5. Active nav link style
+     6. Reduced-motion override)
+   ============================================================= */
+
+/* ── 1. Design Tokens ────────────────────────────────────────── */
+:root {
+  --primary:        #2C3E6B;  /* Deep navy — navbar, headings, primary buttons */
+  --primary-light:  #3D5A99;  /* Hover states, active links */
+  --accent:         #4EA8DE;  /* CTA highlights, upcoming badges */
+  --bg-main:        #F8F9FC;  /* Page background */
+  --bg-card:        #FFFFFF;  /* Card surfaces, table rows */
+  --bg-dark:        #1A1F35;  /* Landing overlay, footer */
+  --text-primary:   #1E293B;  /* Body text */
+  --text-secondary: #64748B;  /* Captions, secondary info */
+  --text-on-dark:   #E2E8F0;  /* Text on dark backgrounds */
+  --border:         #E2E8F0;  /* Table borders, card outlines */
+  --success:        #22C55E;  /* "Upcoming" badge */
+}
+
+/* ── 2. Base ─────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* ── 3. Animation Keyframes ──────────────────────────────────── */
+@keyframes logoScaleIn {
+  0%   { transform: scale(0.3); opacity: 0; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ── 4. Landing Overlay ──────────────────────────────────────── */
+#landing-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.6s ease;
+}
+
+#landing-overlay .overlay-logo {
+  animation: logoScaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+#landing-overlay .overlay-text-wrap {
+  color: var(--text-on-dark);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+#typewriter-text {
+  /* text filled by JS */
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: cursorBlink 0.7s step-end infinite;
+  color: var(--accent);
+}
+
+/* ── 5. Badge Styles ─────────────────────────────────────────── */
+.badge-upcoming,
+.badge-completed {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-weight: 500;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+
+.badge-upcoming {
+  background: var(--success);
+  color: #fff;
+}
+
+.badge-completed {
+  background: var(--text-secondary);
+  color: #fff;
+}
+
+/* ── 6. Table Styles ─────────────────────────────────────────── */
+.mlrg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.mlrg-table thead th {
+  background-color: var(--primary);
+  color: var(--text-on-dark);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+}
+
+.mlrg-table tbody tr:nth-child(even) {
+  background-color: #F1F5FB;
+}
+
+.mlrg-table tbody tr:nth-child(odd) {
+  background-color: var(--bg-card);
+}
+
+.mlrg-table tbody tr:hover {
+  background-color: #E8EFF9;
+  transition: background-color 0.15s ease;
+}
+
+.mlrg-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--text-primary);
+}
+
+.mlrg-table tbody td a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+.mlrg-table tbody td a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+/* Responsive table wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(44, 62, 107, 0.06);
+}
+
+/* ── 7. Active Nav Link ───────────────────────────────────────── */
+.nav-link {
+  color: var(--text-on-dark);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* Mobile nav link variant */
+.nav-link-mobile {
+  color: var(--text-on-dark);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  padding: 0.6rem 0;
+  transition: color 0.15s ease;
+}
+
+.nav-link-mobile:hover,
+.nav-link-mobile.active {
+  color: var(--accent);
+}
+
+/* ── 8. Card Styles ──────────────────────────────────────────── */
+.mlrg-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 107, 0.07);
+  padding: 1.75rem;
+}
+
+.mlrg-card .card-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+/* ── 9. Section Spacing ──────────────────────────────────────── */
+.section-py {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .section-py {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Max content width */
+.content-wrap {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ── 10. Typography Helpers ──────────────────────────────────── */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-mono-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+}
+
+/* ── 11. Principle Cards ─────────────────────────────────────── */
+.principle-card {
+  background: var(--bg-card);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 4px rgba(44, 62, 107, 0.06);
+}
+
+.principle-card .principle-title {
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.principle-card .principle-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ── 12. CTA Button ──────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  box-shadow: 0 4px 12px rgba(44, 62, 107, 0.2);
+}
+
+/* ── 13. Contact Cards ───────────────────────────────────────── */
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 107, 0.07);
+}
+
+.contact-card h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+}
+
+/* ── 14. Archive Toggle Buttons ──────────────────────────────── */
+.toggle-btn {
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.toggle-btn.active {
+  background-color: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.toggle-btn:not(.active) {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.toggle-btn:first-child {
+  border-radius: 9999px 0 0 9999px;
+}
+
+.toggle-btn:last-child {
+  border-radius: 0 9999px 9999px 0;
+}
+
+/* ── 15. Reduced-Motion Override ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

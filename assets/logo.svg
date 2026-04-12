@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="96" fill="#2C3E6B"/>
+  <!-- Outer ring accent -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="#4EA8DE" stroke-width="4"/>
+  <!-- Inner decorative ring -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#3D5A99" stroke-width="1.5" opacity="0.6"/>
+  <!-- "ML" text -->
+  <text
+    x="100"
+    y="118"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="62"
+    font-weight="900"
+    fill="#E2E8F0"
+    letter-spacing="-2"
+  >ML</text>
+  <!-- "RG" subscript -->
+  <text
+    x="100"
+    y="148"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="22"
+    font-weight="700"
+    fill="#4EA8DE"
+    letter-spacing="6"
+  >RG</text>
+</svg>
