@@ -126,61 +126,92 @@ footer {
 }
 
 /* ── 6. Table Styles ─────────────────────────────────────────── */
-.mlrg-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.mlrg-table thead th {
-  background-color: var(--primary);
-  color: var(--text-on-dark);
-  font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
-  text-align: left;
-  padding: 0.75rem 1rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border: none;
-}
-
-.mlrg-table tbody tr:nth-child(even) {
-  background-color: #F1F5FB;
-}
-
-.mlrg-table tbody tr:nth-child(odd) {
-  background-color: var(--bg-card);
-}
-
-.mlrg-table tbody tr:hover {
-  background-color: #E8EFF9;
-  transition: background-color 0.15s ease;
-}
-
-.mlrg-table tbody td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-  color: var(--text-primary);
-}
-
-.mlrg-table tbody td a {
-  color: var(--primary-light);
-  text-decoration: none;
-}
-
-.mlrg-table tbody td a:hover {
-  text-decoration: underline;
-  color: var(--primary);
-}
 
 /* Responsive table wrapper */
 .table-wrapper {
   overflow-x: auto;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(44, 62, 107, 0.06);
+  box-shadow:
+    0 4px 6px -1px rgba(44, 62, 107, 0.07),
+    0 10px 24px -4px rgba(44, 62, 107, 0.05);
+}
+
+.mlrg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+/* Header row */
+.mlrg-table thead tr {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.mlrg-table thead th {
+  color: var(--text-on-dark);
+  font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+
+.mlrg-table thead th:first-child { border-radius: 14px 0 0 0; }
+.mlrg-table thead th:last-child  { border-radius: 0 14px 0 0; }
+
+/* Body rows */
+.mlrg-table tbody tr {
+  background-color: var(--bg-card);
+  transition: background-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.mlrg-table tbody tr:nth-child(even) {
+  background-color: #F4F7FD;
+}
+
+.mlrg-table tbody tr:hover {
+  background-color: #E5EDF8;
+  box-shadow: inset 3px 0 0 var(--primary-light);
+}
+
+.mlrg-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mlrg-table tbody td {
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--text-primary);
+}
+
+/* Date column — fixed width, monospace feel */
+.mlrg-table tbody td:first-child {
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+/* Links in cells */
+.mlrg-table tbody td a {
+  color: var(--primary-light);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+
+.mlrg-table tbody td a:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary-light);
 }
 
 /* ── 7. Active Nav Link ───────────────────────────────────────── */

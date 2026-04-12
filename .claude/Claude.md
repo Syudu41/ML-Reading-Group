@@ -5,6 +5,21 @@ Claude must read this before editing any MLRG website files.
 
 ---
 
+## index.html Has No Upcoming Table
+
+The "Upcoming Presentations" table (Section D) was removed from `index.html`.
+The Next Session card in Section C is the only upcoming-session UI on the home page.
+Do NOT re-add a table to `index.html`. Tables live only in `archive.html`.
+
+## Next Session Card — Centered Layout
+
+The card uses `items-center text-center` on the outer div.
+Fields use a `grid grid-cols-2` for Presenter/Critique and `col-span-2` for Paper/Slides.
+Labels are small uppercase spans above the values.
+Do not revert to the left-aligned `dl` row layout.
+
+---
+
 ## Font Stack (do not revert)
 
 Font was changed from DM Sans + Playfair Display to **Inter + Segoe UI** after user feedback.

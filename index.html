@@ -113,47 +113,59 @@
       <div class="content-wrap">
         <div class="grid md:grid-cols-2 gap-6 items-start">
 
-          <!-- Left: Next Session Unified Card -->
-          <div class="mlrg-card h-full flex flex-col">
-            <div class="flex items-center gap-3 mb-3">
+          <!-- Left: Next Session Unified Card (centered layout) -->
+          <div class="mlrg-card h-full flex flex-col items-center text-center">
+
+            <!-- Heading + badge -->
+            <div class="flex items-center justify-center gap-3 mb-4">
               <h2 class="text-xl font-bold" style="color: var(--primary);">Next Session</h2>
               <span class="badge-upcoming">Upcoming</span>
             </div>
 
             <!-- REPLACE: next session details -->
-            <div class="flex items-center gap-2 text-sm mb-1" style="color: var(--text-primary);">
+
+            <!-- Date & time -->
+            <div class="flex items-center justify-center gap-2 text-sm mb-1 font-semibold" style="color: var(--text-primary);">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span class="font-semibold">Thursday, April 17, 2026 &middot; 3:00 PM</span>
+              <span>Thursday, April 17, 2026 &middot; 3:00 PM</span>
             </div>
-            <div class="flex items-center gap-2 text-sm mb-4" style="color: var(--text-secondary);">
+
+            <!-- Location -->
+            <div class="flex items-center justify-center gap-2 text-sm mb-5" style="color: var(--text-secondary);">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               <span>Dunn Hall 310</span>
             </div>
 
-            <hr class="card-divider">
+            <hr class="card-divider w-full">
 
-            <dl class="space-y-3 text-sm mt-1 flex-1">
-              <div class="flex gap-2">
-                <dt class="font-semibold w-20 flex-shrink-0" style="color: var(--text-secondary);">Presenter</dt>
-                <dd style="color: var(--text-primary);">Jane Doe</dd>
+            <!-- Fields: each as label → value stacked, centered -->
+            <div class="grid grid-cols-2 gap-x-6 gap-y-5 text-sm mt-4 w-full">
+
+              <div class="flex flex-col items-center gap-1">
+                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Presenter</span>
+                <span style="color: var(--text-primary);">Jane Doe</span>
               </div>
-              <div class="flex gap-2">
-                <dt class="font-semibold w-20 flex-shrink-0" style="color: var(--text-secondary);">Critique</dt>
-                <dd style="color: var(--text-primary);">John Smith</dd>
+
+              <div class="flex flex-col items-center gap-1">
+                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Critique</span>
+                <span style="color: var(--text-primary);">John Smith</span>
               </div>
-              <div class="flex gap-2">
-                <dt class="font-semibold w-20 flex-shrink-0" style="color: var(--text-secondary);">Paper</dt>
-                <dd>
-                  <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener" style="color: var(--primary-light);" class="hover:underline">
-                    Attention Is All You Need (Vaswani et al., 2017)
-                  </a>
-                </dd>
+
+              <div class="flex flex-col items-center gap-1 col-span-2">
+                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Paper</span>
+                <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener"
+                   class="hover:underline leading-snug"
+                   style="color: var(--primary-light);">
+                  Attention Is All You Need (Vaswani et al., 2017)
+                </a>
               </div>
-              <div class="flex gap-2">
-                <dt class="font-semibold w-20 flex-shrink-0" style="color: var(--text-secondary);">Slides</dt>
-                <dd style="color: var(--text-secondary); font-style: italic;">Available soon</dd>
+
+              <div class="flex flex-col items-center gap-1 col-span-2">
+                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Slides</span>
+                <span style="color: var(--text-secondary); font-style: italic;">Available soon</span>
               </div>
-            </dl>
+
+            </div>
             <!-- /REPLACE -->
           </div>
 
@@ -176,72 +188,6 @@
           </div>
 
         </div><!-- /grid -->
-      </div>
-    </section>
-
-    <!-- ─────────────────────────────────────────────────────────
-         SECTION D: Upcoming Presentations Table
-         NOTE: Only future sessions live here.
-         Once completed, move rows to archive.html.
-    ──────────────────────────────────────────────────────────── -->
-    <section class="section-py" style="background-color: var(--bg-main);">
-      <div class="content-wrap">
-        <h2 class="text-2xl font-bold mb-6 text-center" style="color: var(--primary);">Upcoming Presentations</h2>
-
-        <div class="table-wrapper">
-          <table class="mlrg-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Presenter</th>
-                <th>Critique</th>
-                <th>Paper</th>
-                <th>Slides</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!--
-                To add a new upcoming session, copy a row below and fill in values.
-                Use data-date="YYYY-MM-DD" for future sorting if needed.
-                If no critique assigned, use: <td>—</td>
-                If no slides available, use: <td>—</td>
-              -->
-
-              <tr data-date="2026-04-17">
-                <td>Apr 17, 2026</td>
-                <td>Jane Doe</td>
-                <td>John Smith</td>
-                <td><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Attention Is All You Need</a></td>
-                <td style="color: var(--text-secondary); font-style: italic;">Available soon</td>
-              </tr>
-
-              <tr data-date="2026-04-24">
-                <td>Apr 24, 2026</td>
-                <td>Alex Rivera</td>
-                <td>Maria Chen</td>
-                <td><a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">BERT: Pre-training of Deep Bidirectional Transformers</a></td>
-                <td>—</td>
-              </tr>
-
-              <tr data-date="2026-05-01">
-                <td>May 1, 2026</td>
-                <td>Sam Patel</td>
-                <td>—</td>
-                <td><a href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener">GPT-4 Technical Report</a></td>
-                <td>—</td>
-              </tr>
-
-              <tr data-date="2026-05-08">
-                <td>May 8, 2026</td>
-                <td>TBD</td>
-                <td>TBD</td>
-                <td>TBD</td>
-                <td>—</td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div><!-- /table-wrapper -->
       </div>
     </section>
 

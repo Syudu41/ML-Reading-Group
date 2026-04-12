@@ -32,6 +32,16 @@
 
 ---
 
+## 2026-04-11 — Issue Fixes (Round 2)
+
+| Change | Files Affected |
+|---|---|
+| Removed Section D (Upcoming Presentations table) from index.html — card is sufficient | `index.html` |
+| Next Session card content restructured to fully centered layout (2-col grid for Presenter/Critique, full-width rows for Paper/Slides) | `index.html` |
+| Archive table redesigned: gradient header, left-accent hover, no bottom border on last row, monospace date column, better shadows | `css/custom.css` |
+
+---
+
 ## 2026-04-11 — Issue Fixes (Round 1)
 
 | Change | Files Affected |
