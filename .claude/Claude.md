@@ -20,13 +20,37 @@ Do not revert to the left-aligned `dl` row layout.
 
 ---
 
-## Color Palette — University of Memphis Brand (do not revert)
+## Color Palette — Light Theme (Vercel-inspired) (do not revert)
 
-Primary = `#003087` (UofM Royal Blue), Accent = `#FDB927` (UofM Gold).
-- Do NOT revert to the old navy (#2C3E6B) or light blue (#4EA8DE) palette
-- `.btn-primary` uses gold background (`--accent`) with dark text (`--bg-dark`)
-- Table row hover shows a gold left-accent bar (`inset 3px 0 0 var(--accent)`)
-- Calendar upcoming cells are gold-tinted; past cells are blue-tinted
+The site uses a **light theme** with **UofM Blue as the primary accent** (not gold).
+Do NOT revert to a dark theme or use gold as the main CTA/active color.
+
+Key tokens (all in `css/custom.css`):
+- `--bg-main: #FAFAFA` — near-white page background
+- `--bg-card: #FFFFFF` — card surfaces
+- `--bg-elevated: #F1F5F9` — hover state
+- `--bg-section: #F0F4FF` — light-blue section alternation
+- `--bg-nav: rgba(255,255,255,0.88)` — glassmorphism navbar
+- `--bg-dark: #001A52` — footer (dark navy)
+- `--heading: #0F172A` — near-black headings
+- `--text-primary: #1E293B` — body text (Slate-800)
+- `--text-secondary: #64748B` — captions (Slate-500)
+- `--primary: #003087` — UofM Royal Blue — ALL interactive elements (buttons, active nav, borders, badges)
+- `--primary-light: #1E40AF` — medium blue for links
+- `--primary-pale: #EEF2FF` — very light blue for tinted backgrounds
+- `--accent: #FDB927` — UofM Gold — used ONLY for: cursor blink, footer link, logo glow
+- `--border: rgba(0,0,0,0.08)` — subtle borders
+- `--border-strong: rgba(0,48,135,0.2)` — blue-tinted hover borders
+
+Rules:
+- `.btn-primary` uses `--primary` (blue) background + white text
+- Table row hover shows a **blue** left-accent bar (`inset 3px 0 0 var(--primary)`)
+- Active nav links use `--primary` (blue) underline, not gold
+- Calendar upcoming cells are blue-tinted; past cells are gray-tinted
+- Headings use `var(--heading)` (dark) or `heading-gradient` class (dark→blue gradient)
+- Navbar: `var(--bg-nav)` inline style + `backdrop-filter` + `border-bottom` in `#main-nav` CSS rule
+- Navbar text (MLRG logo, hamburger): `var(--heading)` — NOT `var(--text-on-dark)` (that's for footer)
+- `#main-content { opacity: 0 }` in CSS — JS always reveals it after landing animation
 
 ## Calendar Widget — Self-Maintaining
 

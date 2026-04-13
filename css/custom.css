@@ -11,21 +11,37 @@
 
 /* ── 1. Design Tokens ────────────────────────────────────────── */
 :root {
-  /* University of Memphis brand colors
-     Primary  = UofM Royal Blue  (#003087)
-     Accent   = UofM Gold        (#FDB927)  — active links, CTAs, highlights  */
-  --primary:        #003087;  /* UofM Royal Blue — navbar, headings */
-  --primary-light:  #1A56DB;  /* Lighter blue — gradients, hover */
-  --accent:         #FDB927;  /* UofM Gold — active links, CTAs, badges */
-  --accent-dark:    #C98A00;  /* Darker gold for hover states on gold elements */
-  --bg-main:        #F5F7FC;  /* Cool-white page background */
-  --bg-card:        #FFFFFF;  /* Card surfaces */
-  --bg-dark:        #001A52;  /* Deep navy — footer, overlay */
-  --text-primary:   #0F172A;  /* Near-black body text */
-  --text-secondary: #4A5E82;  /* Blue-grey secondary / captions */
-  --text-on-dark:   #EEF2FF;  /* Text on dark navy backgrounds */
-  --border:         #D8E1EF;  /* Subtle blue-tinted borders */
-  --success:        #16A34A;  /* Green — "Upcoming" / success badge */
+  /* University of Memphis brand
+     Royal Blue is the primary action / highlight color.
+     Gold is used sparingly for UofM branding context.        */
+  --primary:        #003087;             /* UofM Royal Blue — buttons, active, accents */
+  --primary-hover:  #002070;             /* Deeper blue for hover */
+  --primary-light:  #1E40AF;             /* Medium blue for links */
+  --primary-pale:   #EEF2FF;             /* Very light blue — tinted backgrounds */
+  --accent:         #FDB927;             /* UofM Gold — footer link, cursor */
+  --accent-dark:    #C98A00;
+
+  /* Light-theme backgrounds */
+  --bg-main:        #FAFAFA;             /* Page background (near-white) */
+  --bg-card:        #FFFFFF;             /* Card / panel surface */
+  --bg-elevated:    #F1F5F9;             /* Hover / slightly elevated surface */
+  --bg-section:     #F0F4FF;             /* Light-blue tinted section alternation */
+  --bg-nav:         rgba(255,255,255,0.88); /* Navbar — glassmorphism */
+  --bg-dark:        #001A52;             /* Footer */
+
+  /* Typography */
+  --heading:        #0F172A;             /* Near-black headings */
+  --text-primary:   #1E293B;             /* Body text (Slate-800) */
+  --text-secondary: #64748B;             /* Captions / secondary (Slate-500) */
+  --text-muted:     #94A3B8;             /* Muted / placeholder (Slate-400) */
+  --text-on-dark:   #F8FAFC;             /* Text on dark footer / overlay */
+
+  /* Borders */
+  --border:         rgba(0,0,0,0.08);    /* Subtle borders */
+  --border-strong:  rgba(0,48,135,0.2);  /* Blue-tinted hover borders */
+
+  /* Status */
+  --success:        #16A34A;             /* Green-600 — Upcoming badge */
 }
 
 /* ── 2. Base ─────────────────────────────────────────────────── */
@@ -42,10 +58,22 @@ body {
   min-height: 100vh;
 }
 
-/* Main content grows to fill space → footer always at bottom */
+/* Main content grows → footer always at bottom.
+   opacity:0 ensures no flash-of-content before the landing
+   animation reveals it (only matters on index.html).        */
 main, #main-content {
   flex: 1 0 auto;
 }
+
+#main-content {
+  opacity: 0; /* Revealed by JS after landing animation */
+}
+
+/* Applied by inline <head> script when animation should be skipped
+   (link-click navigation after first visit). Runs before first paint
+   so the overlay is never visible.                                  */
+.no-overlay #landing-overlay { display: none; }
+.no-overlay #main-content    { opacity: 1 !important; }
 
 footer {
   flex-shrink: 0;
@@ -67,7 +95,7 @@ footer {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-color: var(--bg-dark);
+  background-color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,24 +107,22 @@ footer {
 #landing-overlay .overlay-logo {
   animation: logoScaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   opacity: 0;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 0 48px rgba(96,165,250,0.35), 0 0 96px rgba(96,165,250,0.12);
 }
 
 #landing-overlay .overlay-text-wrap {
-  color: var(--text-on-dark);
+  color: #F8FAFC;
   font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-size: clamp(1.1rem, 2.8vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.01em;
   min-height: 2.5rem;
   display: flex;
   align-items: center;
-}
-
-#typewriter-text {
-  /* text filled by JS */
 }
 
 .cursor {
@@ -111,7 +137,7 @@ footer {
 .badge-completed {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   padding: 2px 8px;
   border-radius: 9999px;
   font-weight: 500;
@@ -120,25 +146,26 @@ footer {
 }
 
 .badge-upcoming {
-  background: var(--success);
-  color: #fff;
+  background: rgba(0, 48, 135, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(0, 48, 135, 0.22);
 }
 
 .badge-completed {
-  background: var(--text-secondary);
-  color: #fff;
+  background: rgba(100, 116, 139, 0.1);
+  color: var(--text-secondary);
+  border: 1px solid rgba(100, 116, 139, 0.2);
 }
 
 /* ── 6. Table Styles ─────────────────────────────────────────── */
-
-/* Responsive table wrapper */
 .table-wrapper {
   overflow-x: auto;
-  border-radius: 14px;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
   border: 1px solid var(--border);
   box-shadow:
-    0 4px 6px -1px rgba(44, 62, 107, 0.07),
-    0 10px 24px -4px rgba(44, 62, 107, 0.05);
+    0 1px 3px rgba(0,0,0,0.06),
+    0 8px 24px rgba(0,48,135,0.06);
 }
 
 .mlrg-table {
@@ -150,24 +177,24 @@ footer {
 
 /* Header row */
 .mlrg-table thead tr {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  background: linear-gradient(135deg, #002068 0%, #003087 50%, #1A4BA8 100%);
 }
 
 .mlrg-table thead th {
-  color: var(--text-on-dark);
+  color: rgba(255,255,255,0.92);
   font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-weight: 600;
   text-align: left;
-  padding: 1rem 1.25rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
+  padding: 0.9rem 1.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   border: none;
   white-space: nowrap;
 }
 
-.mlrg-table thead th:first-child { border-radius: 14px 0 0 0; }
-.mlrg-table thead th:last-child  { border-radius: 0 14px 0 0; }
+.mlrg-table thead th:first-child { border-radius: 11px 0 0 0; }
+.mlrg-table thead th:last-child  { border-radius: 0 11px 0 0; }
 
 /* Body rows */
 .mlrg-table tbody tr {
@@ -176,12 +203,12 @@ footer {
 }
 
 .mlrg-table tbody tr:nth-child(even) {
-  background-color: #EEF2FA;
+  background-color: #F8FAFF;
 }
 
 .mlrg-table tbody tr:hover {
-  background-color: #E0E9F8;
-  box-shadow: inset 3px 0 0 var(--accent);
+  background-color: var(--primary-pale);
+  box-shadow: inset 3px 0 0 var(--primary);
 }
 
 .mlrg-table tbody tr:last-child td {
@@ -189,19 +216,19 @@ footer {
 }
 
 .mlrg-table tbody td {
-  padding: 0.9rem 1.25rem;
+  padding: 0.85rem 1.25rem;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
   color: var(--text-primary);
 }
 
-/* Date column — fixed width, monospace feel */
+/* Date column */
 .mlrg-table tbody td:first-child {
   font-weight: 500;
   white-space: nowrap;
   color: var(--text-secondary);
   font-size: 0.8rem;
-  letter-spacing: 0.01em;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* Links in cells */
@@ -218,15 +245,26 @@ footer {
   border-bottom-color: var(--primary-light);
 }
 
-/* ── 7. Active Nav Link ───────────────────────────────────────── */
+/* ── 7. Navbar ───────────────────────────────────────────────── */
+#main-nav {
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+#mobile-menu {
+  border-top: 1px solid var(--border);
+}
+
 .nav-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: var(--text-on-dark);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   padding: 0.25rem 0;
   position: relative;
   transition: color 0.15s ease;
@@ -234,39 +272,38 @@ footer {
 
 .nav-link svg {
   flex-shrink: 0;
-  opacity: 0.8;
+  opacity: 0.6;
   transition: opacity 0.15s ease;
 }
 
 .nav-link:hover {
-  color: var(--accent);
+  color: var(--heading);
 }
-
 .nav-link:hover svg { opacity: 1; }
 
 .nav-link.active {
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
   padding-bottom: 2px;
 }
-
 .nav-link.active svg { opacity: 1; }
 
-/* Mobile nav link variant */
+/* Mobile nav */
 .nav-link-mobile {
-  color: var(--text-on-dark);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 0;
+  padding: 0.65rem 0;
+  min-height: 44px;
   transition: color 0.15s ease;
+  font-size: 0.875rem;
 }
-
 .nav-link-mobile:hover,
 .nav-link-mobile.active {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 /* ── 8. Card Styles ──────────────────────────────────────────── */
@@ -274,8 +311,18 @@ footer {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(44, 62, 107, 0.07);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.05),
+    0 4px 12px rgba(0,48,135,0.04);
   padding: 1.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mlrg-card:hover {
+  border-color: var(--border-strong);
+  box-shadow:
+    0 4px 16px rgba(0,48,135,0.1),
+    0 1px 3px rgba(0,0,0,0.05);
 }
 
 .mlrg-card .card-divider {
@@ -286,14 +333,14 @@ footer {
 
 /* ── 9. Section Spacing ──────────────────────────────────────── */
 .section-py {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 @media (max-width: 768px) {
   .section-py {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -318,104 +365,161 @@ footer {
   font-size: 0.8rem;
 }
 
-/* ── 11. Principle Cards ─────────────────────────────────────── */
+/* Gradient heading — used on hero h1 and page titles */
+.heading-gradient {
+  background: linear-gradient(135deg, #001A52 0%, #003087 55%, #1A56DB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── 11. Hero Section ────────────────────────────────────────── */
+.hero-section {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,48,135,0.06) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 90% 110%, rgba(0,48,135,0.04) 0%, transparent 55%);
+  background-color: var(--bg-main);
+}
+
+/* ── 12. Principle Cards ─────────────────────────────────────── */
 .principle-card {
   background: var(--bg-card);
-  border-left: 4px solid var(--primary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
   border-radius: 0 12px 12px 0;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 1px 4px rgba(44, 62, 107, 0.06);
+  padding: 1.1rem 1.25rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.principle-card:hover {
+  background: var(--primary-pale);
+  border-color: var(--border-strong);
+  border-left-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(0,48,135,0.08);
 }
 
 .principle-card .principle-title {
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
 }
 
 .principle-card .principle-desc {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   text-align: justify;
+  line-height: 1.6;
 }
 
-/* ── 12. CTA Button ──────────────────────────────────────────── */
+/* ── 13. CTA Button ──────────────────────────────────────────── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background-color: var(--accent);       /* UofM Gold */
-  color: var(--bg-dark);                 /* Deep navy text on gold */
+  background-color: var(--primary);
+  color: #fff;
   font-weight: 700;
-  padding: 0.6rem 1.4rem;
+  padding: 0.65rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  transition: background-color 0.15s ease, box-shadow 0.15s ease;
-  font-size: 0.95rem;
+  min-height: 44px;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-dark);
-  box-shadow: 0 4px 12px rgba(253, 185, 39, 0.35);
+  background-color: var(--primary-hover);
+  box-shadow: 0 0 0 4px rgba(0,48,135,0.15);
+  transform: translateY(-1px);
 }
 
-/* ── 13. Contact Cards ───────────────────────────────────────── */
+/* ── 14. Contact Cards ───────────────────────────────────────── */
 .contact-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.75rem 2rem;
-  box-shadow: 0 2px 8px rgba(44, 62, 107, 0.07);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 4px 16px rgba(0,48,135,0.08);
+  background-color: var(--primary-pale);
 }
 
 .contact-card h2 {
   font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--heading);
   margin-bottom: 0.6rem;
 }
 
-/* ── 14. Archive Toggle Buttons ──────────────────────────────── */
+/* ── 15. Archive Toggle Buttons ──────────────────────────────── */
 .toggle-btn {
-  padding: 0.5rem 1.25rem;
+  padding: 0.55rem 1.25rem;
+  min-height: 44px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   border: 1px solid var(--border);
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease,
+              border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .toggle-btn.active {
   background-color: var(--primary);
   color: #fff;
   border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0,48,135,0.25);
 }
 
 .toggle-btn:not(.active) {
   background-color: var(--bg-card);
-  color: var(--text-primary);
+  color: var(--text-secondary);
 }
 
-.toggle-btn:first-child {
-  border-radius: 9999px 0 0 9999px;
+.toggle-btn:not(.active):hover {
+  background-color: var(--primary-pale);
+  color: var(--primary);
+  border-color: var(--border-strong);
 }
 
-.toggle-btn:last-child {
-  border-radius: 0 9999px 9999px 0;
+.toggle-btn:first-child { border-radius: 9999px 0 0 9999px; }
+.toggle-btn:last-child  { border-radius: 0 9999px 9999px 0; }
+
+/* ── 16. Archive Search Input ────────────────────────────────── */
+#archive-search {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
 }
 
-/* ── 15. Custom Calendar Widget ─────────────────────────────── */
+#archive-search::placeholder {
+  color: var(--text-muted);
+}
+
+#archive-search:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(0,48,135,0.1) !important;
+  outline: none;
+}
+
+/* ── 17. Custom Calendar Widget ─────────────────────────────── */
 #mlrg-calendar-widget {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.1rem 1rem 1rem;
-  box-shadow: 0 4px 6px -1px rgba(44,62,107,0.07), 0 10px 24px -4px rgba(44,62,107,0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,48,135,0.04);
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 380px;
+  min-height: 360px;
 }
 
 .cal-header {
@@ -427,8 +531,8 @@ footer {
 
 .cal-month-title {
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--primary);
+  font-size: 0.95rem;
+  color: var(--heading);
   letter-spacing: -0.01em;
 }
 
@@ -436,14 +540,19 @@ footer {
   background: none;
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 0.2rem 0.55rem;
+  padding: 0.2rem 0.6rem;
   cursor: pointer;
   font-size: 1rem;
   line-height: 1;
-  color: var(--primary);
-  transition: background-color 0.12s ease;
+  color: var(--text-secondary);
+  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  min-height: 32px;
 }
-.cal-nav:hover { background-color: var(--bg-main); }
+.cal-nav:hover {
+  background-color: var(--primary-pale);
+  border-color: var(--border-strong);
+  color: var(--primary);
+}
 
 .cal-grid {
   display: grid;
@@ -454,11 +563,11 @@ footer {
 
 .cal-day-name {
   text-align: center;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   padding: 0.3rem 0 0.4rem;
 }
 
@@ -468,9 +577,9 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0.3rem 0.1rem 0.2rem;
+  padding: 0.3rem 0.05rem 0.2rem;
   border-radius: 6px;
-  min-height: 2.4rem;
+  min-height: 2.2rem;
   cursor: default;
   transition: background-color 0.1s ease;
 }
@@ -478,9 +587,9 @@ footer {
 .cal-cell.cal-empty { background: transparent; }
 
 .cal-day-num {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
@@ -494,35 +603,42 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
-/* Past meeting day — UofM Blue tint */
+/* Past meeting day — neutral gray tint */
 .cal-cell.cal-past {
-  background: #E8EEF8;
+  background: #F1F5F9;
   cursor: pointer;
 }
-.cal-cell.cal-past .cal-day-num { color: var(--primary); font-weight: 700; }
-.cal-cell.cal-past:hover { background: #CDD9F0; }
+.cal-cell.cal-past .cal-day-num {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.cal-cell.cal-past:hover { background: #E2E8F0; }
 
-/* Upcoming meeting day — Gold tint */
+/* Upcoming meeting day — blue tint */
 .cal-cell.cal-upcoming {
-  background: #FEF3C7;
+  background: var(--primary-pale);
   cursor: pointer;
 }
-.cal-cell.cal-upcoming .cal-day-num { color: #92400E; font-weight: 700; }
-.cal-cell.cal-upcoming:hover { background: #FDE68A; }
+.cal-cell.cal-upcoming .cal-day-num {
+  color: var(--primary);
+  font-weight: 700;
+}
+.cal-cell.cal-upcoming:hover { background: #D9E4FF; }
 
 /* Event dot */
 .cal-dot {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   margin-top: 2px;
   flex-shrink: 0;
 }
-.cal-past     .cal-dot { background: var(--primary); }
-.cal-upcoming .cal-dot { background: var(--accent); }
+.cal-past     .cal-dot { background: var(--text-muted); }
+.cal-upcoming .cal-dot { background: var(--primary); }
 
 /* Tooltip */
 .cal-tooltip {
@@ -532,15 +648,15 @@ footer {
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  background: var(--bg-dark);
-  color: var(--text-on-dark);
+  background: var(--heading);
+  color: #fff;
   font-size: 0.72rem;
   line-height: 1.5;
-  padding: 0.45rem 0.7rem;
+  padding: 0.45rem 0.75rem;
   border-radius: 8px;
   white-space: nowrap;
   z-index: 200;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
   text-align: center;
   pointer-events: none;
   transition: opacity 0.15s ease, visibility 0.15s ease;
@@ -553,7 +669,7 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
-  border-top-color: var(--bg-dark);
+  border-top-color: var(--heading);
 }
 
 .cal-cell:hover .cal-tooltip,
@@ -566,13 +682,13 @@ footer {
   display: inline-block;
   padding: 1px 6px;
   border-radius: 9999px;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
   margin-top: 2px;
   letter-spacing: 0.03em;
 }
-.cal-tag.past     { background: var(--primary);   color: #fff; }
-.cal-tag.upcoming { background: var(--accent);    color: var(--bg-dark); font-weight: 700; }
+.cal-tag.past     { background: #E2E8F0; color: var(--text-secondary); }
+.cal-tag.upcoming { background: var(--primary-pale); color: var(--primary); font-weight: 700; }
 
 /* Legend row */
 .cal-legend {
@@ -581,19 +697,47 @@ footer {
   justify-content: center;
   gap: 1.25rem;
   margin-top: 0.75rem;
-  font-size: 0.72rem;
-  color: var(--text-secondary);
+  font-size: 0.7rem;
+  color: var(--text-muted);
 }
 .cal-legend-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   margin-right: 4px;
   vertical-align: middle;
 }
 
-/* ── 16. Reduced-Motion Override ─────────────────────────────── */
+/* ── 18. Mobile Responsiveness ───────────────────────────────── */
+/* Calendar at small screens */
+@media (max-width: 480px) {
+  #mlrg-calendar-widget {
+    padding: 0.75rem 0.5rem;
+    min-height: 320px;
+  }
+  .cal-cell { min-height: 1.9rem; padding: 0.15rem 0.02rem; }
+  .cal-day-num { font-size: 0.7rem; }
+  .cal-day-name { font-size: 0.56rem; letter-spacing: 0.03em; }
+  .cal-tooltip { display: none; } /* Too cramped to show on mobile */
+}
+
+/* Touch-friendly minimum tap targets */
+@media (max-width: 768px) {
+  .btn-primary { min-height: 48px; padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+  .toggle-btn { min-height: 48px; padding: 0.65rem 1rem; }
+  .contact-card { padding: 1.25rem 1.25rem; }
+  .mlrg-card { padding: 1.25rem; }
+  .section-py { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .content-wrap { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* Prevent horizontal scroll on very small screens */
+@media (max-width: 360px) {
+  .content-wrap { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+/* ── 19. Reduced-Motion Override ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

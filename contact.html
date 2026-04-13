@@ -18,14 +18,14 @@
   <!-- ══════════════════════════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════════════════════════ -->
-  <nav id="main-nav" class="sticky top-0 z-50 shadow-md" style="background-color: var(--primary);">
+  <nav id="main-nav" class="sticky top-0 z-50" style="background-color: var(--bg-nav);">
     <div class="content-wrap">
       <div class="grid grid-cols-3 items-center h-14">
 
         <div class="flex items-center">
           <a href="index.html" class="flex items-center gap-2 no-underline">
             <img src="assets/logo.png" alt="MLRG" class="h-8 w-8 rounded-full">
-            <span class="font-display font-bold text-lg" style="color: var(--text-on-dark);">MLRG</span>
+            <span class="font-display font-bold text-lg" style="color: var(--heading);">MLRG</span>
           </a>
         </div>
 
@@ -51,7 +51,7 @@
             aria-label="Toggle navigation menu"
             aria-expanded="false"
             aria-controls="mobile-menu"
-            style="color: var(--text-on-dark);"
+            style="color: var(--heading);"
           >
             <span class="block w-6 h-0.5 bg-current"></span>
             <span class="block w-6 h-0.5 bg-current"></span>
@@ -61,7 +61,7 @@
 
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 mt-1">
+      <div id="mobile-menu" class="hidden md:hidden pb-4 mt-1">
         <a href="index.html" class="nav-link-mobile">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           Home
@@ -86,7 +86,7 @@
     <div class="section-py" style="background-color: var(--bg-main);">
       <div class="content-wrap">
 
-        <h1 class="font-display text-4xl font-black mb-10 text-center" style="color: var(--primary);">Get Involved</h1>
+        <h1 class="font-display text-4xl font-black mb-10 text-center heading-gradient">Get Involved</h1>
 
         <div class="flex flex-col gap-6 max-w-2xl mx-auto">
 
@@ -99,8 +99,8 @@
             <!-- REPLACE: professor name — email updated to bbooth@memphis.edu from PPT -->
             <p class="text-sm leading-relaxed text-justify" style="color: var(--text-primary);">
               MLRG is open to all University of Memphis graduate students and researchers.
-              Contact <strong>[Professor Name]</strong> at
-              <a href="mailto:bbooth@memphis.edu" style="color: var(--primary-light);" class="hover:underline">bbooth@memphis.edu</a>
+              Contact <strong>Dr. Brandon Booth</strong> at
+              <a href="mailto:bbooth@memphis.edu" style="color: var(--primary);" class="hover:underline">bbooth@memphis.edu</a>
               to join.
             </p>
             <!-- /REPLACE -->
@@ -133,6 +133,10 @@
                 <dt class="font-semibold w-24 flex-shrink-0 text-right" style="color: var(--text-secondary);">Day</dt>
                 <dd class="w-48">Tuesday</dd>
               </div>
+                <div class="flex gap-3 justify-center">
+                <dt class="font-semibold w-24 flex-shrink-0 text-right" style="color: var(--text-secondary);">Semester</dt>
+                <dd class="w-48">Spring 2026</dd>
+              </div>
               <div class="flex gap-3 justify-center">
                 <dt class="font-semibold w-24 flex-shrink-0 text-right" style="color: var(--text-secondary);">Time</dt>
                 <dd class="w-48">4:30 PM &ndash; 5:30 PM</dd>
@@ -145,7 +149,7 @@
               </div>
               <div class="flex gap-3 justify-center">
                 <dt class="font-semibold w-24 flex-shrink-0 text-right" style="color: var(--text-secondary);">Frequency</dt>
-                <dd class="w-48">Weekly (Spring: Jan 12 &ndash; Apr 30)</dd>
+                <dd class="w-48">Every Tuesday</dd>
               </div>
             </dl>
           </div>
@@ -158,8 +162,7 @@
             </h2>
             <!-- REPLACE: organizer name and email -->
             <p class="text-sm leading-relaxed text-justify" style="color: var(--text-primary);">
-              Want to lead a discussion? Email <strong>[Organizer Name]</strong> at
-              <a href="mailto:organizer@memphis.edu" style="color: var(--primary-light);" class="hover:underline">[organizer@memphis.edu]</a>
+              Want to lead a discussion? Members can email or chat with <a href="mailto:bboth@memphis.edu" style="color: var(--primary);" class="hover:underline">Dr. Brandon Booth</a>
               with your proposed paper and a preferred date. All skill levels are welcome to present.
             </p>
             <!-- /REPLACE -->

@@ -9,6 +9,17 @@
   <meta property="og:description" content="Weekly AI/ML paper discussions at the University of Memphis.">
   <meta property="og:image" content="assets/og-image.png">
   <link rel="icon" href="assets/logo.png" type="image/png">
+  <!-- Inline: runs before first paint. Hides overlay immediately when
+       animation should be skipped (link-click after first visit).    -->
+  <script>
+    (function () {
+      var nav  = performance.getEntriesByType('navigation')[0];
+      var type = nav ? nav.type : 'navigate';
+      if (type !== 'reload' && sessionStorage.getItem('mlrg-animated')) {
+        document.documentElement.classList.add('no-overlay');
+      }
+    }());
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
@@ -33,7 +44,7 @@
   <!-- ══════════════════════════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════════════════════════ -->
-  <nav id="main-nav" class="sticky top-0 z-50 shadow-md" style="background-color: var(--primary);">
+  <nav id="main-nav" class="sticky top-0 z-50" style="background-color: var(--bg-nav);">
     <div class="content-wrap">
       <div class="grid grid-cols-3 items-center h-14">
 
@@ -41,7 +52,7 @@
         <div class="flex items-center">
           <a href="index.html" class="flex items-center gap-2 no-underline">
             <img src="assets/logo.png" alt="MLRG" class="h-8 w-8 rounded-full">
-            <span class="font-display font-bold text-lg" style="color: var(--text-on-dark);">MLRG</span>
+            <span class="font-display font-bold text-lg" style="color: var(--heading);">MLRG</span>
           </a>
         </div>
 
@@ -69,7 +80,7 @@
             aria-label="Toggle navigation menu"
             aria-expanded="false"
             aria-controls="mobile-menu"
-            style="color: var(--text-on-dark);"
+            style="color: var(--heading);"
           >
             <span class="block w-6 h-0.5 bg-current"></span>
             <span class="block w-6 h-0.5 bg-current"></span>
@@ -80,7 +91,7 @@
       </div><!-- /grid row -->
 
       <!-- Mobile menu (hidden by default) -->
-      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 mt-1">
+      <div id="mobile-menu" class="hidden md:hidden pb-4 mt-1">
         <a href="index.html" class="nav-link-mobile active">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           Home
@@ -107,11 +118,11 @@
     <!-- ─────────────────────────────────────────────────────────
          SECTION B: Welcome
     ──────────────────────────────────────────────────────────── -->
-    <section class="section-py" style="background-color: var(--bg-main);">
+    <section class="section-py hero-section">
       <div class="content-wrap">
         <div class="flex flex-col items-center gap-4">
-          <img src="assets/logo.png" alt="MLRG Logo" class="w-16 h-16 rounded-full shadow-md">
-          <h1 class="font-display text-4xl md:text-5xl font-black leading-tight text-center" style="color: var(--primary);">
+          <img src="assets/logo.png" alt="MLRG Logo" class="w-16 h-16 rounded-full" style="box-shadow: 0 0 32px rgba(253,185,39,0.2);">
+          <h1 class="font-display text-4xl md:text-5xl font-black leading-tight text-center heading-gradient">
             Machine Learning Reading Group
           </h1>
           <p class="text-base font-semibold tracking-wide uppercase text-center" style="color: var(--text-secondary);">
@@ -138,7 +149,7 @@
     <div class="py-3 text-center" style="background-color: var(--bg-card); border-bottom: 1px solid var(--border);">
       <div class="content-wrap">
         <div class="inline-flex items-center justify-center gap-2 text-sm">
-          <svg class="w-4 h-4 flex-shrink-0" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg class="w-4 h-4 flex-shrink-0" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
           </svg>
           <span class="font-semibold" style="color: var(--primary);">News</span>
@@ -153,7 +164,7 @@
     <!-- ─────────────────────────────────────────────────────────
          SECTION C: Next Session + Calendar (Side by Side)
     ──────────────────────────────────────────────────────────── -->
-    <section class="section-py" style="background-color: #EEF2FA;">
+    <section class="section-py" style="background-color: var(--bg-section);">
       <div class="content-wrap">
         <div class="grid md:grid-cols-2 gap-6 items-start">
 
@@ -162,7 +173,7 @@
 
             <!-- Heading + badge -->
             <div class="flex items-center justify-center gap-3 mb-4">
-              <h2 class="text-xl font-bold" style="color: var(--primary);">Next Session</h2>
+              <h2 class="text-xl font-bold" style="color: var(--heading);">Next Session</h2>
               <span class="badge-upcoming">Upcoming</span>
             </div>
 
@@ -200,7 +211,7 @@
                 <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Paper</span>
                 <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener"
                    class="hover:underline leading-snug"
-                   style="color: var(--primary-light);">
+                   style="color: var(--primary);">
                   Attention Is All You Need (Vaswani et al., 2017)
                 </a>
               </div>
@@ -216,7 +227,7 @@
 
           <!-- Right: Group Calendar (custom widget) -->
           <div class="flex flex-col gap-3 h-full">
-            <h2 class="text-xl font-bold text-center" style="color: var(--primary);">Group Calendar</h2>
+            <h2 class="text-xl font-bold text-center" style="color: var(--heading);">Group Calendar</h2>
             <!--
               Custom calendar widget — Spring 2026 Tuesday sessions (4:30–5:30 PM).
               Hover a highlighted date to see session details.
@@ -236,13 +247,13 @@
     <!-- ─────────────────────────────────────────────────────────
          SECTION E: About MLRG
     ──────────────────────────────────────────────────────────── -->
-    <section class="section-py" style="background-color: #EEF2FA;">
+    <section class="section-py" style="background-color: var(--bg-main);">
       <div class="content-wrap">
-        <h2 class="text-3xl font-bold mb-10 text-center" style="color: var(--primary);">About MLRG</h2>
+        <h2 class="text-3xl font-bold mb-10 text-center" style="color: var(--heading);">About MLRG</h2>
 
         <!-- Sub-section 1: What We Read -->
         <div class="mb-10">
-          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">What We Read</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--heading);">What We Read</h3>
           <!-- REPLACE: scope content from philosophy PPT -->
           <div class="space-y-4 max-w-3xl mx-auto text-base leading-relaxed text-justify" style="color: var(--text-primary);">
             <p>
@@ -264,7 +275,7 @@
 
         <!-- Sub-section 2: Our Principles -->
         <div class="mb-10">
-          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Our Principles</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--heading);">Our Principles</h3>
           <!-- REPLACE: principles and pillars content from philosophy PPT -->
           <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
 
@@ -294,7 +305,7 @@
 
         <!-- Sub-section 3: Who Should Attend -->
         <div class="mb-10">
-          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--primary);">Who Should Attend</h3>
+          <h3 class="text-xl font-bold mb-4 text-center" style="color: var(--heading);">Who Should Attend</h3>
           <p class="max-w-3xl mx-auto text-base leading-relaxed text-justify" style="color: var(--text-primary);">
             MLRG is open to all University of Memphis graduate students and researchers interested in machine
             learning. Presentations rotate among group members &mdash; every participant is encouraged to lead a
@@ -308,7 +319,7 @@
         <!-- CTA -->
         <div class="flex justify-center mt-2">
           <a href="contact.html" class="btn-primary">
-            Want to join? &rarr; Contact page
+            Want to join? Contact Us!
           </a>
         </div>
 

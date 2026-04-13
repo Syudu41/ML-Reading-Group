@@ -29,9 +29,16 @@ function typeWriter(element, text, speed, callback) {
 /* ── 2. Landing Animation Controller ────────────────────────── */
 /**
  * Orchestrates the full-screen landing overlay animation sequence.
- * Skips if:
- *   - sessionStorage flag 'mlrg-animated' is already set (repeat visit in same tab)
+ *
+ * Shows the animation when:
+ *   - First visit in the session (sessionStorage flag not yet set)
+ *   - Page is reloaded (F5 / Ctrl+R / browser refresh button)
+ *
+ * Skips the animation when:
+ *   - User navigates here by clicking a link (Home, logo, etc.)
  *   - User has prefers-reduced-motion enabled
+ *
+ * Note: #main-content starts at opacity:0 via CSS — this function reveals it.
  */
 function initLandingAnimation() {
   const overlay = document.getElementById('landing-overlay');
@@ -39,14 +46,34 @@ function initLandingAnimation() {
 
   const mainContent = document.getElementById('main-content');
 
-  // Skip for users who prefer reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  function skipAnimation() {
     overlay.remove();
     if (mainContent) mainContent.style.opacity = '1';
+  }
+
+  // Skip for users who prefer reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    skipAnimation();
     return;
   }
 
-  // Hide main content while overlay is visible
+  // Detect navigation type: 'reload' vs 'navigate' (link click)
+  var navEntry = performance.getEntriesByType('navigation')[0];
+  var navType  = navEntry ? navEntry.type : 'navigate';
+  var hasPlayed = sessionStorage.getItem('mlrg-animated');
+
+  if (navType !== 'reload' && hasPlayed) {
+    // Returning via link click after the animation has already played — skip
+    skipAnimation();
+    return;
+  }
+
+  // Clear the flag so a reload always triggers the animation fresh
+  if (navType === 'reload') {
+    sessionStorage.removeItem('mlrg-animated');
+  }
+
+  // #main-content is already hidden via CSS (opacity:0).
   if (mainContent) mainContent.style.opacity = '0';
 
   const typewriterSpan = document.getElementById('typewriter-text');
@@ -76,6 +103,8 @@ function initLandingAnimation() {
             mainContent.style.transition = 'opacity 0.3s ease';
             mainContent.style.opacity = '1';
           }
+          // Mark animation as played — link-click navigations will skip it
+          sessionStorage.setItem('mlrg-animated', 'true');
         }, 620); // slightly longer than the 600ms fade
 
       }, 400);
