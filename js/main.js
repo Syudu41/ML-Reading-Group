@@ -77,8 +77,6 @@ function initLandingAnimation() {
   if (mainContent) mainContent.style.opacity = '0';
 
   const typewriterSpan = document.getElementById('typewriter-text');
-  const cursorSpan = document.querySelector('#landing-overlay .cursor');
-  const overlayLogo = overlay.querySelector('.overlay-logo');
 
   // Step 1: Logo scale-in animation is applied via CSS (animation: logoScaleIn)
   // The CSS animation runs automatically on the element.
@@ -370,8 +368,8 @@ function initCalendar() {
 
     html += '</div>' // end .cal-grid
       + '<div class="cal-legend">'
-      + '<span><span class="cal-legend-dot" style="background:var(--primary)"></span>Past session</span>'
-      + '<span><span class="cal-legend-dot" style="background:var(--accent)"></span>Coming Soon</span>'
+      + '<span><span class="cal-legend-dot" style="background:var(--text-muted)"></span>Past session</span>'
+      + '<span><span class="cal-legend-dot" style="background:var(--primary)"></span>Coming Soon</span>'
       + '</div>';
 
     container.innerHTML = html;
