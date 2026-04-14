@@ -1,6 +1,6 @@
 # ML-Reading-Group
 
-ML-Reading-Group official website @ University of Memphis
+ML-Reading-Group official website @ University of Memphis 
 
 <svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
