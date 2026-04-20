@@ -557,15 +557,78 @@ a {
   outline: none;
 }
 
-/* ── 17. Custom Calendar Widget ─────────────────────────────── */
-#mlrg-calendar-widget {
+/* ── 17. Session Card (Section C) ───────────────────────────── */
+.session-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.85rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,48,135,0.04);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.session-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.session-card-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: -0.01em;
+}
+
+.session-card-date {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.session-card-location {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.session-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.session-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+.session-field { display: flex; flex-direction: column; gap: 0.15rem; }
+.session-field-full { grid-column: 1 / -1; }
+
+.session-fields dt {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+
+.session-fields dd {
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+/* ── 18. Custom Calendar Widget ─────────────────────────────── */
+#mlrg-calendar-widget {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .cal-header {
