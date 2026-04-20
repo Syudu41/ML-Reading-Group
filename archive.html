@@ -10,7 +10,7 @@
   <meta property="og:image" content="assets/og-image.png">
   <link rel="icon" href="assets/logo.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Libertinus+Serif:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
@@ -87,7 +87,7 @@
       <div class="content-wrap">
 
         <!-- Page heading -->
-        <h1 class="font-display text-4xl font-black mb-6 text-center" style="color: var(--heading);">Archive</h1>
+        <h1 class="font-display text-4xl font-bold mb-6 text-center" style="color: var(--heading);">Archive</h1>
 
         <!-- Toggle button group -->
         <div class="flex justify-center mb-5" role="group" aria-label="Archive section toggle">
@@ -96,7 +96,7 @@
         </div>
 
         <!-- Search input -->
-        <div class="mb-8 max-w-md mx-auto">
+        <div class="mb-8 max-w-xl mx-auto">
           <label for="archive-search" class="sr-only">Search archive</label>
           <div class="relative">
             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color: var(--text-secondary);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -121,7 +121,12 @@
              CURRENT SEMESTER (visible by default)
         ═══════════════════════════════ -->
         <div id="current-semester">
-          <h2 class="text-2xl font-bold mb-4 text-center" style="color: var(--heading);">Spring 2026</h2>
+          <div class="semester-heading">
+            <h2 class="text-2xl font-bold text-center" style="color: var(--heading);">
+              Spring 2026
+              <span class="font-mono-tag ml-2 align-middle" style="font-size:0.7rem; color:var(--text-muted); background:var(--bg-elevated); border:1px solid var(--border); border-radius:9999px; padding:2px 8px; vertical-align:middle;">12 sessions</span>
+            </h2>
+          </div>
 
           <div class="table-wrapper">
             <table class="mlrg-table">
@@ -160,7 +165,7 @@
                   <td>Apr 14, 2026</td>
                   <td>Rhidita</td>
                   <td>Guangzeng</td>
-                  <td><a href="https://arxiv.org/pdf/2410.04585" target="_blank" rel="noopener">https://arxiv.org/pdf/2410.04585</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/pdf/2410.04585" target="_blank" rel="noopener">https://arxiv.org/pdf/2410.04585</a></td>
                   <td>—</td>
                 </tr>
                 <tr class="archive-row" data-date="2026-04-07">
@@ -174,7 +179,7 @@
                   <td>Mar 31, 2026</td>
                   <td>Hanshu Rao</td>
                   <td>Weisi Liu</td>
-                  <td><a href="https://arxiv.org/abs/2410.23605" target="_blank" rel="noopener">https://arxiv.org/abs/2410.23605</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2410.23605" target="_blank" rel="noopener">https://arxiv.org/abs/2410.23605</a></td>
                   <td>—</td>
                 </tr>
                 <tr class="archive-row" data-date="2026-03-31">
@@ -188,28 +193,25 @@
                   <td>Mar 24, 2026</td>
                   <td>Hanshu Rao</td>
                   <td>Weisi Liu</td>
-                  <td><a href="https://arxiv.org/abs/2410.23605" target="_blank" rel="noopener">https://arxiv.org/abs/2410.23605</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2410.23605" target="_blank" rel="noopener">https://arxiv.org/abs/2410.23605</a></td>
                   <td>—</td>
                 </tr>
                 <tr class="archive-row" data-date="2026-03-17">
                   <td>Mar 17, 2026</td>
                   <td>Samagata</td>
                   <td>Shuvro</td>
-                  <td><a href="https://arxiv.org/pdf/2501.14278" target="_blank" rel="noopener">https://arxiv.org/pdf/2501.14278</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/pdf/2501.14278" target="_blank" rel="noopener">https://arxiv.org/pdf/2501.14278</a></td>
                   <td>—</td>
                 </tr>
-                <tr class="archive-row" data-date="2026-03-10">
+                <tr class="archive-row archive-no-session" data-date="2026-03-10">
                   <td>Mar 10, 2026</td>
-                  <td>SPRING BREAK</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>—</td>
+                  <td colspan="4">Spring Break</td>
                 </tr>
                 <tr class="archive-row" data-date="2026-03-03">
                   <td>Mar 3, 2026</td>
                   <td>Xin Xu</td>
                   <td>Yanliang Qi</td>
-                  <td><a href="https://arxiv.org/abs/2412.02168" target="_blank" rel="noopener">https://arxiv.org/abs/2412.02168</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2412.02168" target="_blank" rel="noopener">https://arxiv.org/abs/2412.02168</a></td>
                   <td>—</td>
                 </tr>
                 <tr class="archive-row" data-date="2026-02-24">
@@ -223,22 +225,19 @@
                   <td>Feb 17, 2026</td>
                   <td>Rhidita</td>
                   <td>—</td>
-                  <td><a href="https://arxiv.org/pdf/2410.16930" target="_blank" rel="noopener">https://arxiv.org/pdf/2410.16930</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/pdf/2410.16930" target="_blank" rel="noopener">https://arxiv.org/pdf/2410.16930</a></td>
                   <td>—</td>
                 </tr>
                 <tr class="archive-row" data-date="2026-02-10">
                   <td>Feb 10, 2026</td>
                   <td>Guangzeng</td>
                   <td>Hanshu Rao</td>
-                  <td><a href="https://arxiv.org/pdf/2505.18759" target="_blank" rel="noopener">https://arxiv.org/pdf/2505.18759</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/pdf/2505.18759" target="_blank" rel="noopener">https://arxiv.org/pdf/2505.18759</a></td>
                   <td>—</td>
                 </tr>
-                <tr class="archive-row" data-date="2026-02-03">
+                <tr class="archive-row archive-no-session" data-date="2026-02-03">
                   <td>Feb 3, 2026</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>—</td>
+                  <td colspan="4">No session</td>
                 </tr>
 
               </tbody>
@@ -252,7 +251,12 @@
         <div id="previous-semesters" class="hidden">
 
           <!-- Fall 2025 -->
-          <h2 class="text-2xl font-bold mb-4 text-center" style="color: var(--heading);">Fall 2025</h2>
+          <div class="semester-heading">
+            <h2 class="text-2xl font-bold text-center" style="color: var(--heading);">
+              Fall 2025
+              <span class="font-mono-tag ml-2 align-middle" style="font-size:0.7rem; color:var(--text-muted); background:var(--bg-elevated); border:1px solid var(--border); border-radius:9999px; padding:2px 8px; vertical-align:middle;">5 sessions</span>
+            </h2>
+          </div>
 
           <div class="table-wrapper mb-10">
             <table class="mlrg-table">
@@ -275,7 +279,7 @@
                   <td>Nov 20, 2025</td>
                   <td>Sam Patel</td>
                   <td>Maria Chen</td>
-                  <td><a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">LLaMA 2: Open Foundation and Fine-Tuned Chat Models</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener">LLaMA 2: Open Foundation and Fine-Tuned Chat Models</a></td>
                   <td><a href="slides/2025-11-20-sampatel.pdf">Slides (PDF)</a></td>
                 </tr>
 
@@ -283,7 +287,7 @@
                   <td>Nov 13, 2025</td>
                   <td>Jane Doe</td>
                   <td>John Smith</td>
-                  <td><a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">Constitutional AI: Harmlessness from AI Feedback</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">Constitutional AI: Harmlessness from AI Feedback</a></td>
                   <td>—</td>
                 </tr>
 
@@ -291,7 +295,7 @@
                   <td>Nov 6, 2025</td>
                   <td>John Smith</td>
                   <td>Sam Patel</td>
-                  <td><a href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener">High-Resolution Image Synthesis with Latent Diffusion Models</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener">High-Resolution Image Synthesis with Latent Diffusion Models</a></td>
                   <td><a href="slides/2025-11-06-johnsmith.pdf">Slides (PDF)</a></td>
                 </tr>
 
@@ -299,7 +303,7 @@
                   <td>Oct 30, 2025</td>
                   <td>Maria Chen</td>
                   <td>Alex Rivera</td>
-                  <td><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">Training Language Models to Follow Instructions with Human Feedback (InstructGPT)</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">Training Language Models to Follow Instructions with Human Feedback (InstructGPT)</a></td>
                   <td>—</td>
                 </tr>
 
@@ -307,7 +311,7 @@
                   <td>Oct 23, 2025</td>
                   <td>Alex Rivera</td>
                   <td>Jane Doe</td>
-                  <td><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a></td>
+                  <td class="paper-title"><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a></td>
                   <td><a href="slides/2025-10-23-alexrivera.pdf">Slides (PDF)</a></td>
                 </tr>
 
@@ -318,7 +322,9 @@
           <!-- Add more past semesters below as needed -->
           <!--
             Example structure for adding a new past semester:
-            <h2 class="text-2xl font-bold mb-4" style="color: var(--heading);">Spring 2025</h2>
+            <div class="semester-heading">
+              <h2 class="text-2xl font-bold text-center" style="color: var(--heading);">Spring 2025</h2>
+            </div>
             <div class="table-wrapper mb-10">
               <table class="mlrg-table">
                 <thead>...</thead>
@@ -339,18 +345,21 @@
        FOOTER
   ═══════════════════════════════════════════════════════════ -->
   <footer class="py-6" style="background-color: var(--bg-dark);">
-    <div class="content-wrap flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center" style="color: var(--text-on-dark);">
-      <img src="assets/logo.png" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
-      <span>
-        &copy; 2026 Machine Learning Reading Group &middot; University of Memphis. All rights reserved.
-      </span>
-      <a
-        href="https://github.com/Syudu41/ML-Reading-Group"
-        target="_blank"
-        rel="noopener"
-        class="hover:underline opacity-70 hover:opacity-100 transition-opacity"
-        style="color: var(--accent);"
-      >GitHub</a>
+    <div class="content-wrap text-center" style="color: var(--text-on-dark);">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-sm mb-2">
+        <img src="assets/logo.png" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
+        <span class="font-semibold">Machine Learning Reading Group</span>
+        <span style="opacity:0.4;">|</span>
+        <span style="opacity:0.75;">Department of Computer Science &middot; University of Memphis</span>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs" style="opacity:0.65;">
+        <span>Faculty Advisor: <a href="mailto:bbooth@memphis.edu" class="hover:underline" style="color:var(--accent);">Dr. Brandon Booth</a></span>
+        <span style="opacity:0.4;">|</span>
+        <span>&copy; 2026 MLRG. All rights reserved.</span>
+        <span style="opacity:0.4;">|</span>
+        <a href="https://github.com/Syudu41/ML-Reading-Group" target="_blank" rel="noopener"
+           class="hover:underline" style="color:var(--accent);">GitHub</a>
+      </div>
     </div>
   </footer>
 

@@ -52,7 +52,7 @@ html {
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);
-  font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -116,7 +116,7 @@ footer {
 
 #landing-overlay .overlay-text-wrap {
   color: #F8FAFC;
-  font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1.1rem, 2.8vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -182,7 +182,7 @@ footer {
 
 .mlrg-table thead th {
   color: rgba(255,255,255,0.92);
-  font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-weight: 600;
   text-align: left;
   padding: 0.9rem 1.25rem;
@@ -355,9 +355,14 @@ footer {
 
 /* ── 10. Typography Helpers ──────────────────────────────────── */
 .font-display {
-  font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+/* All links in monospace */
+a {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .font-mono-tag {
@@ -367,7 +372,7 @@ footer {
 
 /* Gradient heading — used on hero h1 and page titles */
 .heading-gradient {
-  background: linear-gradient(135deg, #001A52 0%, #003087 55%, #1A56DB 100%);
+  background: linear-gradient(135deg, #001A52 0%, #003087 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -439,7 +444,8 @@ footer {
 .contact-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-left: 3px solid var(--primary);
+  border-radius: 0 12px 12px 0;
   padding: 1.75rem 2rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -452,11 +458,44 @@ footer {
 }
 
 .contact-card h2 {
-  font-family: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--heading);
   margin-bottom: 0.6rem;
+}
+
+/* Paper title cells */
+.mlrg-table tbody td.paper-title a {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--heading);
+}
+.mlrg-table tbody td.paper-title a:hover { color: var(--primary); }
+
+/* No-session rows (Spring Break, empty weeks) — muted centered label */
+.archive-no-session td:last-child {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+}
+
+/* Semester heading — blue rule beneath h2 */
+.semester-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.semester-heading::after {
+  content: '';
+  display: block;
+  width: 4rem;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
 }
 
 /* ── 15. Archive Toggle Buttons ──────────────────────────────── */
@@ -735,6 +774,28 @@ footer {
 /* Prevent horizontal scroll on very small screens */
 @media (max-width: 360px) {
   .content-wrap { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+/* ── 20. Sign-Up Section (contact.html) ─────────────────────── */
+.signup-section {
+  background: var(--bg-section);
+  border-bottom: 1px solid var(--border);
+}
+.signup-iframe-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,48,135,0.04);
+}
+.signup-iframe-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+@media (max-width: 768px) {
+  .signup-iframe-wrap iframe { height: 480px; }
 }
 
 /* ── 19. Reduced-Motion Override ─────────────────────────────── */

@@ -63,11 +63,12 @@ If a Teams meeting link is created, add it as a "Join on Teams →" button to th
 
 ## Font Stack (do not revert)
 
-Font was changed from DM Sans + Playfair Display to **Inter + Segoe UI** after user feedback.
-- Google Fonts link: `Inter:wght@400;500;600;700;800;900` + `JetBrains+Mono`
-- CSS stack: `'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif`
-- `.font-display` class now uses Inter 800 with tight tracking (not a serif font)
-- Do NOT reintroduce Playfair Display or DM Sans
+Font changed from Inter to **Geist** (all text) after user feedback.
+- Google Fonts: `Geist:wght@300;400;500;600;700;800` + `JetBrains+Mono:wght@400`
+- Body + heading CSS stack: `'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif`
+- `.font-display` class: `font-weight: 800; letter-spacing: -0.02em`
+- All `<a>` links use `font-family: 'JetBrains Mono', monospace` (global CSS rule)
+- Do NOT reintroduce Inter, DM Sans, Playfair Display, Libertinus Serif, or Libre Baskerville
 
 ## Footer Positioning (do not break)
 

@@ -10,7 +10,7 @@
   <meta property="og:image" content="assets/og-image.png">
   <link rel="icon" href="assets/logo.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Libertinus+Serif:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
@@ -80,15 +80,38 @@
   </nav>
 
   <!-- ══════════════════════════════════════════════════════════
+       SIGN UP SECTION — Microsoft Forms Embed
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="signup-section section-py">
+    <div class="content-wrap">
+      <h2 class="text-3xl font-bold mb-2 text-center" style="color: var(--heading);">Sign Up for MLRG</h2>
+      <p class="text-base text-center mb-8 max-w-xl mx-auto" style="color: var(--text-secondary);">
+        Interested in joining? Fill out the form below to get on our mailing list and receive session announcements.
+      </p>
+      <!-- REPLACE: when you have the Microsoft Forms embed URL, replace the div below with:
+           <div class="signup-iframe-wrap max-w-3xl mx-auto">
+             <iframe src="YOUR_MICROSOFT_FORMS_EMBED_URL" title="MLRG Sign-Up Form"
+               frameborder="0" style="width:100%; height:600px; border:none;" allowfullscreen></iframe>
+           </div>
+      -->
+      <div class="max-w-3xl mx-auto text-center py-10 px-8 rounded-xl" style="background:var(--bg-card); border:1px dashed var(--border-strong);">
+        <p class="text-sm font-semibold mb-1" style="color: var(--text-secondary);">Sign-up form coming soon</p>
+        <p class="text-xs" style="color: var(--text-muted);">In the meantime, email <a href="mailto:bbooth@memphis.edu">bbooth@memphis.edu</a> to join.</p>
+      </div>
+      <!-- /REPLACE -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
        MAIN CONTENT
   ═══════════════════════════════════════════════════════════ -->
   <main>
     <div class="section-py" style="background-color: var(--bg-main);">
       <div class="content-wrap">
 
-        <h1 class="font-display text-4xl font-black mb-10 text-center heading-gradient">Get Involved</h1>
+        <h1 class="font-display text-4xl font-bold mb-6 text-center heading-gradient">Get Involved</h1>
 
-        <div class="flex flex-col gap-6 max-w-2xl mx-auto">
+        <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
 
           <!-- Card 1: Join the Reading Group -->
           <div class="contact-card">
@@ -178,18 +201,21 @@
        FOOTER
   ═══════════════════════════════════════════════════════════ -->
   <footer class="py-6" style="background-color: var(--bg-dark);">
-    <div class="content-wrap flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center" style="color: var(--text-on-dark);">
-      <img src="assets/logo.png" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
-      <span>
-        &copy; 2026 Machine Learning Reading Group &middot; University of Memphis. All rights reserved.
-      </span>
-      <a
-        href="https://github.com/Syudu41/ML-Reading-Group"
-        target="_blank"
-        rel="noopener"
-        class="hover:underline opacity-70 hover:opacity-100 transition-opacity"
-        style="color: var(--accent);"
-      >GitHub</a>
+    <div class="content-wrap text-center" style="color: var(--text-on-dark);">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-sm mb-2">
+        <img src="assets/logo.png" alt="MLRG" class="w-6 h-6 rounded-full opacity-80">
+        <span class="font-semibold">Machine Learning Reading Group</span>
+        <span style="opacity:0.4;">|</span>
+        <span style="opacity:0.75;">Department of Computer Science &middot; University of Memphis</span>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs" style="opacity:0.65;">
+        <span>Faculty Advisor: <a href="mailto:bbooth@memphis.edu" class="hover:underline" style="color:var(--accent);">Dr. Brandon Booth</a></span>
+        <span style="opacity:0.4;">|</span>
+        <span>&copy; 2026 MLRG. All rights reserved.</span>
+        <span style="opacity:0.4;">|</span>
+        <a href="https://github.com/Syudu41/ML-Reading-Group" target="_blank" rel="noopener"
+           class="hover:underline" style="color:var(--accent);">GitHub</a>
+      </div>
     </div>
   </footer>
 
