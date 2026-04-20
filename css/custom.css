@@ -820,24 +820,38 @@ a {
 /* ── 18. Mobile Responsiveness ───────────────────────────────── */
 /* Calendar at small screens */
 @media (max-width: 480px) {
-  #mlrg-calendar-widget {
-    padding: 0.75rem 0.5rem;
-    min-height: 320px;
-  }
+  #mlrg-calendar-widget { padding: 0.75rem 0.5rem; }
   .cal-cell { min-height: 1.9rem; padding: 0.15rem 0.02rem; }
   .cal-day-num { font-size: 0.7rem; }
   .cal-day-name { font-size: 0.56rem; letter-spacing: 0.03em; }
-  .cal-tooltip { display: none; } /* Too cramped to show on mobile */
+  .cal-tooltip { display: none; }
 }
 
-/* Touch-friendly minimum tap targets */
+/* Touch-friendly minimum tap targets + mobile layout */
 @media (max-width: 768px) {
+  /* Navbar shrinks on mobile */
+  #main-nav .nav-inner { height: 3.5rem; }
+
+  /* Session card single-column on mobile */
+  .session-fields { grid-template-columns: 1fr; }
+  .session-field-full { grid-column: 1; }
+  .session-card { padding: 1.25rem 1.25rem; }
+
+  /* Touch targets */
   .btn-primary { min-height: 48px; padding: 0.75rem 1.5rem; font-size: 0.95rem; }
   .toggle-btn { min-height: 48px; padding: 0.65rem 1rem; }
   .contact-card { padding: 1.25rem 1.25rem; }
   .mlrg-card { padding: 1.25rem; }
   .section-py { padding-top: 2.5rem; padding-bottom: 2.5rem; }
   .content-wrap { padding-left: 1rem; padding-right: 1rem; }
+
+  /* Archive search min touch height */
+  #archive-search { min-height: 44px; }
+
+  /* Contact page meeting details — remove fixed widths on mobile */
+  .contact-card dl dt { width: auto; text-align: left; }
+  .contact-card dl dd { width: auto; }
+  .contact-card dl .flex { flex-wrap: wrap; gap: 0.25rem; }
 }
 
 /* Prevent horizontal scroll on very small screens */
