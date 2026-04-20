@@ -50,6 +50,10 @@ Rules:
 - Headings use `var(--heading)` (dark) or `heading-gradient` class (dark→blue gradient)
 - Navbar: `var(--bg-nav)` inline style + `backdrop-filter` + `border-bottom` in `#main-nav` CSS rule
 - Navbar text (MLRG logo, hamburger): `var(--heading)` — NOT `var(--text-on-dark)` (that's for footer)
+- Navbar layout: flex justify-between (MLRG logo left, nav links + UofM wordmark right) — NOT grid-cols-3
+- Nav height: `.nav-inner { height: 4rem }` — NOT `h-14`
+- Nav links use Geist font (`.nav-link` CSS override) — the global `a { font-family: mono }` would otherwise apply
+- UofM wordmark (right side of nav): text placeholder with REPLACE comment — swap with `assets/uofm-logo.png` when available
 - `#main-content { opacity: 0 }` in CSS — JS always reveals it after landing animation
 
 ## Calendar Widget — Self-Maintaining

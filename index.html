@@ -46,18 +46,18 @@
   ═══════════════════════════════════════════════════════════ -->
   <nav id="main-nav" class="sticky top-0 z-50" style="background-color: var(--bg-nav);">
     <div class="content-wrap">
-      <div class="grid grid-cols-3 items-center h-14">
+      <div class="nav-inner flex items-center justify-between">
 
-        <!-- Col 1: Logo (left) -->
+        <!-- Left: MLRG logo -->
         <div class="flex items-center">
           <a href="index.html" class="flex items-center gap-2 no-underline">
             <img src="assets/logo.png" alt="MLRG" class="h-8 w-8 rounded-full">
-            <span class="font-display font-bold text-lg" style="color: var(--heading);">MLRG</span>
+            <span class="font-display font-bold text-lg" style="color: var(--heading); font-family: 'Geist', sans-serif;">MLRG</span>
           </a>
         </div>
 
-        <!-- Col 2: Nav links (centered) - desktop only -->
-        <div class="hidden md:flex items-center justify-center gap-8">
+        <!-- Right: Nav links + UofM wordmark — desktop only -->
+        <div class="hidden md:flex items-center gap-8">
           <a href="index.html" class="nav-link active">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
             Home
@@ -70,10 +70,15 @@
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             Contact
           </a>
+          <!-- REPLACE: swap img below with the UofM official logo file (add assets/uofm-logo.png) -->
+          <div class="pl-4 border-l" style="border-color: var(--border);">
+            <span style="font-family:'Geist',sans-serif; font-size:0.7rem; font-weight:700; color:var(--primary); letter-spacing:0.06em; text-transform:uppercase; line-height:1.2; display:block;">University<br>of Memphis</span>
+          </div>
+          <!-- /REPLACE -->
         </div>
 
-        <!-- Col 3: Hamburger (right, mobile only) -->
-        <div class="flex justify-end">
+        <!-- Hamburger (mobile only) -->
+        <div class="flex md:hidden justify-end">
           <button
             id="hamburger-btn"
             class="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded focus:outline-none"
@@ -122,21 +127,18 @@
       <div class="content-wrap">
         <div class="flex flex-col items-center gap-4">
           <img src="assets/logo.png" alt="MLRG Logo" class="w-16 h-16 rounded-full" style="box-shadow: 0 0 32px rgba(253,185,39,0.2);">
-          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-center heading-gradient">
-            <span class="block">Machine Learning Reading Group</span>
+          <h1 class="title-sc text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-center heading-gradient">
+            Machine Learning Reading Group
           </h1>
-          <p class="text-base font-semibold uppercase text-center" style="color: var(--text-secondary);">
-            University of Memphis &middot; Student-Led Weekly Paper Discussions
+          <p class="text-sm text-center" style="color: var(--primary); font-family:'Geist',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;">
+            University of Memphis
           </p>
           <!-- REPLACE: welcome message text -->
-          <p class="text-xl font-semibold italic text-center mt-1" style="color: var(--primary);">
+          <p class="text-lg font-bold text-center mt-1" style="color: var(--primary); font-family:'Geist',sans-serif;">
             Read deeply. Think critically. Share clearly.
           </p>
-          <p class="max-w-2xl text-base leading-relaxed text-justify" style="color: var(--text-primary);">
-            MLRG is a student-led reading group at the University of Memphis where we explore the
-            latest and most influential research in machine learning and AI. Each session features a deep-dive
-            presentation on one paper, a critique from a designated discussant, and open group discussion &mdash;
-            because we move faster and better together.
+          <p class="max-w-2xl text-base leading-relaxed text-center" style="color: var(--text-primary); font-family:'Geist',sans-serif;">
+            We are a group of UofM students enthusiastic about machine learning. We sit together weekly to discuss papers that propose influential or impactful ideas for building machine learning systems. We generate and record our exchange, ideas and questions here.
           </p>
         </div>
       </div>
@@ -225,13 +227,11 @@
           </div>
 
           <!-- Right: Group Calendar (custom widget) -->
-          <div class="flex flex-col gap-3 h-full">
+          <div class="mlrg-card h-full flex flex-col gap-3">
             <h2 class="text-xl font-bold text-center" style="color: var(--heading);">Group Calendar</h2>
             <!--
               Custom calendar widget - Spring 2026 Tuesday sessions (4:30–5:30 PM).
-              Hover a highlighted date to see session details.
-              REPLACE: if a Teams meeting link is created, add it to the Next Session
-              card above as a "Join on Teams →" button.
+              REPLACE: if a Teams meeting link is created, add a "Join on Teams →" button to the Next Session card.
             -->
             <div id="mlrg-calendar-widget" class="flex-1"></div>
             <p class="text-sm text-center" style="color: var(--text-secondary);">

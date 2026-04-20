@@ -161,11 +161,7 @@ footer {
 .table-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border-radius: 12px;
   border: 1px solid var(--border);
-  box-shadow:
-    0 1px 3px rgba(0,0,0,0.06),
-    0 8px 24px rgba(0,48,135,0.06);
 }
 
 .mlrg-table {
@@ -177,7 +173,7 @@ footer {
 
 /* Header row */
 .mlrg-table thead tr {
-  background: linear-gradient(135deg, #002068 0%, #003087 50%, #1A4BA8 100%);
+  background-color: var(--primary);
 }
 
 .mlrg-table thead th {
@@ -185,30 +181,22 @@ footer {
   font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-weight: 600;
   text-align: left;
-  padding: 0.9rem 1.25rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.07em;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   border: none;
   white-space: nowrap;
 }
 
-.mlrg-table thead th:first-child { border-radius: 11px 0 0 0; }
-.mlrg-table thead th:last-child  { border-radius: 0 11px 0 0; }
-
 /* Body rows */
 .mlrg-table tbody tr {
   background-color: var(--bg-card);
-  transition: background-color 0.12s ease, box-shadow 0.12s ease;
-}
-
-.mlrg-table tbody tr:nth-child(even) {
-  background-color: #F8FAFF;
+  transition: background-color 0.1s ease;
 }
 
 .mlrg-table tbody tr:hover {
   background-color: var(--primary-pale);
-  box-shadow: inset 3px 0 0 var(--primary);
 }
 
 .mlrg-table tbody tr:last-child td {
@@ -216,7 +204,7 @@ footer {
 }
 
 .mlrg-table tbody td {
-  padding: 0.85rem 1.25rem;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
   color: var(--text-primary);
@@ -251,6 +239,10 @@ footer {
   -webkit-backdrop-filter: blur(14px) saturate(180%);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 0 var(--border);
+}
+
+#main-nav .nav-inner {
+  height: 4rem; /* 64px — taller than original h-14 (56px) */
 }
 
 #mobile-menu {
@@ -360,9 +352,25 @@ footer {
   letter-spacing: -0.02em;
 }
 
+/* Small-caps title — Times New Roman / serif for academic look */
+.title-sc {
+  font-family: 'Geist', Times, Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
 /* All links in monospace */
 a {
   font-family: 'JetBrains Mono', monospace;
+}
+
+/* Nav links override — normal font, not mono */
+.nav-link,
+.nav-link-mobile,
+.nav-link span,
+.nav-link-mobile span {
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-mono-tag {
@@ -472,13 +480,14 @@ a {
 }
 .mlrg-table tbody td.paper-title a:hover { color: var(--primary); }
 
-/* No-session rows (Spring Break, empty weeks) — muted centered label */
-.archive-no-session td:last-child {
-  color: var(--text-muted);
-  font-style: italic;
+/* No-session rows (Spring Break, empty weeks) — small-caps bold, centered */
+.archive-no-session td[colspan] {
   text-align: center;
-  letter-spacing: 0.04em;
-  font-size: 0.8rem;
+  font-family: 'Geist', Times, Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
 }
 
 /* Semester heading — blue rule beneath h2 */
