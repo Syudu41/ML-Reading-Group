@@ -242,7 +242,7 @@ footer {
 }
 
 #main-nav .nav-inner {
-  height: 4rem; /* 64px — taller than original h-14 (56px) */
+  height: 5rem; /* 80px */
 }
 
 #mobile-menu {
@@ -474,7 +474,7 @@ a {
 
 /* Paper title cells */
 .mlrg-table tbody td.paper-title a {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.85rem;
   color: var(--heading);
 }
@@ -562,12 +562,10 @@ a {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1rem;
+  padding: 0.85rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,48,135,0.04);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 360px;
 }
 
 .cal-header {
@@ -606,7 +604,6 @@ a {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
-  flex: 1;
 }
 
 .cal-day-name {
@@ -624,10 +621,10 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0.3rem 0.05rem 0.2rem;
-  border-radius: 6px;
-  min-height: 2.2rem;
+  justify-content: center;
+  padding: 0.2rem 0.05rem;
+  border-radius: 4px;
+  min-height: 1.75rem;
   cursor: default;
   transition: background-color 0.1s ease;
 }

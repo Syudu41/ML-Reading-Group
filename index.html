@@ -7,7 +7,7 @@
   <meta name="description" content="Weekly reading group exploring AI and machine learning research papers at the University of Memphis.">
   <meta property="og:title" content="MLRG · Machine Learning Reading Group">
   <meta property="og:description" content="Weekly AI/ML paper discussions at the University of Memphis.">
-  <meta property="og:image" content="assets/og-image.png">
+  <!-- <meta property="og:image" content="assets/og-image.png"> -->
   <link rel="icon" href="assets/logo.png" type="image/png">
   <!-- Inline: runs before first paint. Hides overlay immediately when
        animation should be skipped (link-click after first visit).    -->
@@ -70,11 +70,10 @@
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             Contact
           </a>
-          <!-- REPLACE: swap img below with the UofM official logo file (add assets/uofm-logo.png) -->
-          <div class="pl-4 border-l" style="border-color: var(--border);">
-            <span style="font-family:'Geist',sans-serif; font-size:0.7rem; font-weight:700; color:var(--primary); letter-spacing:0.06em; text-transform:uppercase; line-height:1.2; display:block;">University<br>of Memphis</span>
+          <div class="pl-4 border-l flex items-center gap-2" style="border-color: var(--border);">
+            <img src="assets/UofM_logo.png" alt="University of Memphis" class="h-8 w-auto">
+            <span style="font-family:'Geist',sans-serif; font-size:0.8rem; font-weight:600; color:var(--primary); line-height:1.25;">University of<br>Memphis</span>
           </div>
-          <!-- /REPLACE -->
         </div>
 
         <!-- Hamburger (mobile only) -->
@@ -137,7 +136,7 @@
           <p class="text-lg font-bold text-center mt-1" style="color: var(--primary); font-family:'Geist',sans-serif;">
             Read deeply. Think critically. Share clearly.
           </p>
-          <p class="max-w-2xl text-base leading-relaxed text-center" style="color: var(--text-primary); font-family:'Geist',sans-serif;">
+          <p class="max-w-2xl text-base leading-relaxed text-justify" style="color: var(--text-primary); font-family:'Geist',sans-serif;">
             We are a group of UofM students enthusiastic about machine learning. We sit together weekly to discuss papers that propose influential or impactful ideas for building machine learning systems. We generate and record our exchange, ideas and questions here.
           </p>
         </div>
@@ -167,76 +166,52 @@
     ──────────────────────────────────────────────────────────── -->
     <section class="section-py" style="background-color: var(--bg-section);">
       <div class="content-wrap">
-        <div class="grid md:grid-cols-2 gap-6 items-start">
+        <div class="grid md:grid-cols-2 gap-6 items-stretch">
 
-          <!-- Left: Next Session Unified Card (centered layout) -->
-          <div class="mlrg-card h-full flex flex-col items-center text-center">
+          <!-- Left: Next Session Card -->
+          <div class="session-card">
 
-            <!-- Heading + badge -->
-            <div class="flex items-center justify-center gap-3 mb-4">
-              <h2 class="text-xl font-bold" style="color: var(--heading);">Next Session</h2>
+            <div class="session-card-header">
+              <span class="session-card-label">Next Session</span>
               <span class="badge-upcoming">Upcoming</span>
             </div>
 
-            <!-- REPLACE: next session details -->
+            <!-- REPLACE: update each week -->
+            <p class="session-card-date">Tuesday, April 14, 2026 &middot; 4:30 PM</p>
+            <p class="session-card-location">Dunn Hall 107</p>
 
-            <!-- Date & time -->
-            <!-- REPLACE: update date each week to the next Tuesday session -->
-            <div class="flex items-center justify-center gap-2 text-sm mb-1 font-semibold" style="color: var(--text-primary);">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span>Tuesday, April 14, 2026 &middot; 4:30 PM</span>
-            </div>
+            <hr class="session-divider">
 
-            <!-- Location -->
-            <div class="flex items-center justify-center gap-2 text-sm mb-5" style="color: var(--text-secondary);">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span>Dunn Hall 107</span>
-            </div>
-
-            <hr class="card-divider w-full">
-
-            <!-- Fields: each as label → value stacked, centered -->
-            <div class="grid grid-cols-2 gap-x-6 gap-y-5 text-sm mt-4 w-full">
-
-              <div class="flex flex-col items-center gap-1">
-                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Presenter</span>
-                <span style="color: var(--text-primary);">Israt Naiyer</span>
+            <dl class="session-fields">
+              <div class="session-field">
+                <dt>Presenter</dt>
+                <dd>Israt Naiyer</dd>
               </div>
-
-              <div class="flex flex-col items-center gap-1">
-                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Critique</span>
-                <span style="color: var(--text-primary);">--</span>
+              <div class="session-field">
+                <dt>Critique</dt>
+                <dd>—</dd>
               </div>
-
-              <div class="flex flex-col items-center gap-1 col-span-2">
-                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Paper</span>
-                <a href="https://arxiv.org/abs/2502.10996" target="_blank" rel="noopener"
-                   class="hover:underline leading-snug"
-                   style="color: var(--primary);">
-                  RAS: Retrieval-And-Structuring for Knowledge-Intensive LLM Generation
-                </a>
+              <div class="session-field session-field-full">
+                <dt>Paper</dt>
+                <dd><a href="https://arxiv.org/abs/2502.10996" target="_blank" rel="noopener">RAS: Retrieval-And-Structuring for Knowledge-Intensive LLM Generation</a></dd>
               </div>
-
-              <div class="flex flex-col items-center gap-1 col-span-2">
-                <span class="font-semibold text-xs uppercase tracking-wider" style="color: var(--text-secondary);">Slides</span>
-                <span style="color: var(--text-secondary); font-style: italic;">Available soon</span>
+              <div class="session-field session-field-full">
+                <dt>Slides</dt>
+                <dd style="color:var(--text-muted);">Available soon</dd>
               </div>
-
-            </div>
+            </dl>
             <!-- /REPLACE -->
+
           </div>
 
-          <!-- Right: Group Calendar (custom widget) -->
-          <div class="mlrg-card h-full flex flex-col gap-3">
-            <h2 class="text-xl font-bold text-center" style="color: var(--heading);">Group Calendar</h2>
-            <!--
-              Custom calendar widget - Spring 2026 Tuesday sessions (4:30–5:30 PM).
-              REPLACE: if a Teams meeting link is created, add a "Join on Teams →" button to the Next Session card.
-            -->
-            <div id="mlrg-calendar-widget" class="flex-1"></div>
-            <p class="text-sm text-center" style="color: var(--text-secondary);">
-              Hover a highlighted date to see session details.
-            </p>
+          <!-- Right: Calendar -->
+          <div class="session-card">
+            <div class="session-card-header">
+              <span class="session-card-label">Group Calendar</span>
+            </div>
+            <!-- Custom calendar widget - Spring 2026 Tuesday sessions (4:30–5:30 PM).
+                 REPLACE: if a Teams link is created, add "Join on Teams →" button above. -->
+            <div id="mlrg-calendar-widget"></div>
           </div>
 
         </div><!-- /grid -->
