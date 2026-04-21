@@ -52,7 +52,7 @@ html {
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);
-  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Arial', 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
