@@ -162,6 +162,8 @@ footer {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .mlrg-table {
@@ -185,7 +187,7 @@ footer {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: none;
+  border-right: 1px solid rgba(255,255,255,0.2);
   white-space: nowrap;
 }
 
@@ -195,17 +197,17 @@ footer {
   transition: background-color 0.1s ease;
 }
 
+.mlrg-table tbody tr:nth-child(even) {
+  background-color: #F8FAFC;
+}
+
 .mlrg-table tbody tr:hover {
   background-color: var(--primary-pale);
 }
 
-.mlrg-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
 .mlrg-table tbody td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
   vertical-align: middle;
   color: var(--text-primary);
 }
@@ -480,7 +482,14 @@ a {
 }
 .mlrg-table tbody td.paper-title a:hover { color: var(--primary); }
 
-/* No-session rows (Spring Break, empty weeks) — small-caps bold, centered */
+/* No-session rows (Spring Break, empty weeks) — muted gray background */
+.mlrg-table tbody tr.archive-no-session {
+  background-color: #F1F5F9 !important;
+}
+.mlrg-table tbody tr.archive-no-session:hover {
+  background-color: #E2E8F0 !important;
+}
+
 .archive-no-session td[colspan] {
   text-align: center;
   font-family: 'Geist', Times, Georgia, serif;
@@ -537,8 +546,8 @@ a {
   border-color: var(--border-strong);
 }
 
-.toggle-btn:first-child { border-radius: 9999px 0 0 9999px; }
-.toggle-btn:last-child  { border-radius: 0 9999px 9999px 0; }
+.toggle-btn:first-child { border-radius: 10px 0 0 10px; }
+.toggle-btn:last-child  { border-radius: 0 10px 10px 0; }
 
 /* ── 16. Archive Search Input ────────────────────────────────── */
 #archive-search {
@@ -559,13 +568,25 @@ a {
 
 /* ── 17. Session Card (Section C) ───────────────────────────── */
 .session-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.75rem 2rem;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  padding: 2rem 2.25rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 16px rgba(0,0,0,0.06),
+    0 16px 36px rgba(0,48,135,0.05);
+  transition: box-shadow 0.25s ease, transform 0.22s ease;
+}
+
+.session-card:hover {
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.05),
+    0 8px 24px rgba(0,0,0,0.08),
+    0 24px 48px rgba(0,48,135,0.08);
+  transform: translateY(-3px);
 }
 
 .session-card-header {
@@ -576,10 +597,10 @@ a {
 }
 
 .session-card-label {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--heading);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .session-card-date {
@@ -597,7 +618,7 @@ a {
 
 .session-divider {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(0,0,0,0.1);
   margin-bottom: 1rem;
 }
 
@@ -612,16 +633,17 @@ a {
 .session-field-full { grid-column: 1 / -1; }
 
 .session-fields dt {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.09em;
   color: var(--text-muted);
 }
 
 .session-fields dd {
   color: var(--text-primary);
   line-height: 1.45;
+  font-weight: 500;
 }
 
 /* ── 18. Custom Calendar Widget ─────────────────────────────── */
@@ -685,11 +707,11 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem 0.05rem;
-  border-radius: 4px;
-  min-height: 1.75rem;
+  padding: 0.25rem 0.05rem;
+  border-radius: 6px;
+  min-height: 2.1rem;
   cursor: default;
-  transition: background-color 0.1s ease;
+  transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
 .cal-cell.cal-empty { background: transparent; }
@@ -717,25 +739,25 @@ a {
 
 /* Past meeting day — neutral gray tint */
 .cal-cell.cal-past {
-  background: #F1F5F9;
+  background: #E4EAF0;
   cursor: pointer;
 }
 .cal-cell.cal-past .cal-day-num {
   color: var(--text-secondary);
   font-weight: 600;
 }
-.cal-cell.cal-past:hover { background: #E2E8F0; }
+.cal-cell.cal-past:hover { background: #D0D9E4; transform: scale(1.08); }
 
 /* Upcoming meeting day — blue tint */
 .cal-cell.cal-upcoming {
-  background: var(--primary-pale);
+  background: #DBEAFE;
   cursor: pointer;
 }
 .cal-cell.cal-upcoming .cal-day-num {
-  color: var(--primary);
+  color: #1D4ED8;
   font-weight: 700;
 }
-.cal-cell.cal-upcoming:hover { background: #D9E4FF; }
+.cal-cell.cal-upcoming:hover { background: #BFDBFE; transform: scale(1.08); }
 
 /* Event dot */
 .cal-dot {
