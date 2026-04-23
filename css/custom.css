@@ -136,7 +136,7 @@ footer {
 .badge-upcoming,
 .badge-completed {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-size: 0.72rem;
   padding: 2px 8px;
   border-radius: 9999px;
@@ -218,7 +218,7 @@ footer {
   white-space: nowrap;
   color: var(--text-secondary);
   font-size: 0.8rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Links in cells */
@@ -362,9 +362,8 @@ footer {
   font-weight: 700;
 }
 
-/* All links in monospace */
 a {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Nav links override — normal font, not mono */
@@ -376,7 +375,7 @@ a {
 }
 
 .font-mono-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Geist', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   font-size: 0.8rem;
 }
 
