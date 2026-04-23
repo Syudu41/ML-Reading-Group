@@ -411,4 +411,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Mobile nav — all pages
   initMobileNav();
+
+  // Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 });
