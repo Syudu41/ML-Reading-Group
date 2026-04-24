@@ -389,41 +389,12 @@ function initCalendar() {
   render();
 }
 
-/* ── 7. Shared partials (nav + footer) ───────────────────────── */
-function loadPartials() {
-  var page = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-
-  var navDone = fetch('partials/nav.html')
-    .then(function (r) { return r.text(); })
-    .then(function (html) {
-      var el = document.getElementById('nav-placeholder');
-      if (!el) return;
-      el.outerHTML = html;
-      document.querySelectorAll('[data-page="' + page + '"]').forEach(function (a) {
-        a.classList.add('active');
-      });
-    })
-    .catch(function () {});
-
-  var footerDone = fetch('partials/footer.html')
-    .then(function (r) { return r.text(); })
-    .then(function (html) {
-      var el = document.getElementById('footer-placeholder');
-      if (!el) return;
-      el.outerHTML = html;
-    })
-    .catch(function () {});
-
-  return Promise.all([navDone, footerDone]);
-}
-
-/* ── 8. Init ─────────────────────────────────────────────────── */
+/* ── 7. Init ─────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
-  // Load shared nav + footer, then init nav-dependent behaviors
-  loadPartials().then(function () {
-    initMobileNav();
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-  });
+  // Inject shared nav + footer (defined in js/partials.js)
+  injectPartials();
+  initMobileNav();
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 
   // Landing animation — only on index.html (overlay element exists)
   if (document.getElementById('landing-overlay')) {
