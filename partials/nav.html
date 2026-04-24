@@ -1,0 +1,68 @@
+<nav id="main-nav" class="sticky top-0 z-50" style="background-color: var(--bg-nav);">
+  <div class="content-wrap">
+    <div class="nav-inner flex items-center justify-between">
+
+      <!-- Left: MLRG logo -->
+      <div class="flex items-center">
+        <a href="index.html" class="flex items-center gap-2 no-underline">
+          <img src="assets/logo.png" alt="MLRG" class="h-11 w-11 rounded-full">
+          <span class="font-display font-bold text-xl" style="color: var(--heading); font-family: Arial, sans-serif;">MLRG</span>
+        </a>
+      </div>
+
+      <!-- Right: Nav links + UofM wordmark — desktop only -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link" data-page="index">
+          <i data-lucide="house" class="nav-icon"></i>
+          Home
+        </a>
+        <a href="archive.html" class="nav-link" data-page="archive">
+          <i data-lucide="archive" class="nav-icon"></i>
+          Archive
+        </a>
+        <a href="contact.html" class="nav-link" data-page="contact">
+          <i data-lucide="mail" class="nav-icon"></i>
+          Contact
+        </a>
+        <div class="pl-4 border-l flex items-center gap-2" style="border-color: var(--border);">
+          <img src="assets/UofM_logo.png" alt="University of Memphis" class="h-10 w-auto">
+          <span style="font-family:Arial,sans-serif; font-size:0.9rem; font-weight:600; color:var(--primary); line-height:1.25;">University of<br>Memphis</span>
+        </div>
+      </div>
+
+      <!-- Hamburger (mobile only) -->
+      <div class="flex md:hidden justify-end">
+        <button
+          id="hamburger-btn"
+          class="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded focus:outline-none"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          style="color: var(--heading);"
+        >
+          <span class="block w-6 h-0.5 bg-current"></span>
+          <span class="block w-6 h-0.5 bg-current"></span>
+          <span class="block w-6 h-0.5 bg-current"></span>
+        </button>
+      </div>
+
+    </div><!-- /grid row -->
+
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4 mt-1">
+      <a href="index.html" class="nav-link-mobile" data-page="index">
+        <i data-lucide="house" class="nav-icon"></i>
+        Home
+      </a>
+      <a href="archive.html" class="nav-link-mobile" data-page="archive">
+        <i data-lucide="archive" class="nav-icon"></i>
+        Archive
+      </a>
+      <a href="contact.html" class="nav-link-mobile" data-page="contact">
+        <i data-lucide="mail" class="nav-icon"></i>
+        Contact
+      </a>
+    </div>
+
+  </div><!-- /content-wrap -->
+</nav>
