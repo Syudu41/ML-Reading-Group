@@ -2,5 +2,5 @@
 
 ML-Reading-Group official website @ University of Memphis 
 
->[!NOTE]
-> Updates made every week! 
+>[!IMPORTANT]
+> This repo is now permanently moved to [MLRG Repo](https://github.com/uofm-cs-sig/mlrg)
